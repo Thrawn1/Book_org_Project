@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 import shelve
-from protect_name import *
+from protect_fields import *
 class S_vol:
         #Данный класс описывает книгу, которая не имеет томов
         def __init__(self,author='',name='',year_p = 0,genre ='',location = 0,accessory = False):

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from s_vol_c import *
 from m_vol_c import *
+from protect_fields import *
 import shelve
 def new_record(self):#Данная функция создает новую запись в БД
         file_db = shelve.open('book_db_2')
@@ -19,11 +20,11 @@ def new_record(self):#Данная функция создает новую за
                 for field in fieldnmes:
                         field_1 = fieldnmes_1[rt]
                         if field == 'year_p':
-                                new_b = input('\t[%s]\nВведите год издания=>' % (field_1))
+                                new_b = input('\t[%s]\nВведите год издания:' % (field_1))
                                 setattr(self,field,eval(new_b))
                                 rt = rt+1
                         elif field == 'location':
-                                new_b = input('\t[%s]\nВведите номер полки=>' % (field_1))
+                                new_b = input('\t[%s]\nВведите номер полки:' % (field_1))
                                 setattr(self,field,eval(new_b))
                                 rt = rt+1
                         elif field == 'accessory':
@@ -43,13 +44,21 @@ def new_record(self):#Данная функция создает новую за
                                 setattr(self,field,eval(new_b))
                                 rt = rt+1
                         elif field == 'author':
-                                pass
-                        elif field == 'name'
-                        else:
-                                new_b_1 = input('\t[%s]\nВведите значение =>' % (field_1))
+                                new_b_1 = input('\t[%s]\nВведите Фамилию, Имя,Отчество автора:' % (field_1))
                                 new_b = '\''+str(new_b_1)+'\''
                                 setattr(self,field,eval(new_b))
                                 rt = rt+1
+                        elif field == 'name':
+                        	new_b_1 = input('\t[%s]\nВведите название книги:' % (field_1))
+                        	cb = protect_name(new_b_1)
+                        	if cb == 1:
+                                	new_b = '\''+str(new_b_1)+'\''
+                                	setattr(self,field,eval(new_b))
+                                	rt = rt+1
+                                else:
+                                	pass
+                        else:
+                                pass
         elif type_in =='2':
                 fieldnmes = ('author','name','year_p','genre','location','accessory','total_vol','number_vol','availble_vol')
                 pass
