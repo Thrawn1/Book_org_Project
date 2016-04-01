@@ -65,3 +65,14 @@ def protect_availble_vol(in1):
     else:
         print('Введите количество томов в наличии!')
         return 0
+def protect_number(in1):
+    if in1.isdigit() == True:
+        in2 = int(in1)
+        if in2 > 0 and in2 < 100:
+            return 1
+        else:
+             print('Введите корректное число строк,отображаемых на экране!')
+             return 0
+    else:
+        print( 'Введите число!')
+        return 0

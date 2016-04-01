@@ -3,39 +3,42 @@
 from s_vol_c import *
 from m_vol_c import *
 import shelve
-def search_family():
+def search_family(in1):
     R = []
     K = []
+    nm = 0
     db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
     j = input('\nВведите имя автора:')
     for b in K:
             c = db_f[b].author_family()
-            if j == c:
-                R.append(db_f[b].author_initial()+' ; '+ db_f[b].name)
+            if j == c and nm < in1:
+                R.append(b)
+                nm = nm+1
             else:
                 pass
     if len(R) !=0:
-        print(R)
+        return R
     else:
         print('Ничего не найдено!')
 
-def search_name():
+def search_name(in1):
     R = []
     K = []
+    nm = 0
     db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
     j = input('\nВведите имя название книги:')
     for b in K:
             c = db_f[b].name
-            print(c)
-            if j == c:
-                R.append(db_f[b].author_initial()+' ; '+ db_f[b].name)
+            if j == c and nm < in1:
+                R.append(b)
+                nm = nm + 1
             else:
                 pass
     if len(R) !=0:
-        print(R)
+        return R
     else:
         print('Ничего не найдено!')
