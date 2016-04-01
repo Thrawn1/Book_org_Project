@@ -3,7 +3,7 @@
 from s_vol_c import *
 from m_vol_c import *
 import shelve
-def search_full_name():
+def search_family():
     R = []
     K = []
     db_f = shelve.open('book_db_2')
@@ -14,6 +14,10 @@ def search_full_name():
             c = db_f[b].author_family()
             if j == c:
                 R.append(db_f[b].author_initial()+' ; '+ db_f[b].name)
-            else: pass
-    print(R)
+            else:
+                pass
+    if len(R) !=0:
+        print(R)
+    else:
+        print('Ничего не найдено!')
     
