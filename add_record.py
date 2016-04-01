@@ -5,6 +5,8 @@ from m_vol_c import *
 from protect_fields import *
 import shelve
 def new_record(self):#Данная функция создает новую запись в БД
+        #Наверное стоит передавать не объект в функцию, а какое то значение, что бы фунцию вызывать, а уже в рамках неё создавать объект. 
+        #Подумать, можно ли упростить каким либо образом эту фунцию - провести разбивку на модули, например.
         file_db = shelve.open('book_db_2')
         K1 = []
         for key in file_db:
@@ -48,17 +50,14 @@ def new_record(self):#Данная функция создает новую за
                                 new_b = '\''+str(new_b_1)+'\''
                                 setattr(self,field,eval(new_b))
                                 rt = rt+1
-                        elif field == 'name':
+                        elif field == 'name': #Нужно ввести цикл, что в случае не правильно введеного значения было предложено еще раз ввести значение
                         	new_b_1 = input('\t[%s]\nВведите название книги:' % (field_1))
                         	cb = protect_name(new_b_1)
                         	if cb == 1:
                                 	new_b = '\''+str(new_b_1)+'\''
                                 	setattr(self,field,eval(new_b))
                                 	rt = rt+1
-                                else:
-                                	pass
-                        else:
-                                pass
+                        else: pass
         elif type_in =='2':
                 fieldnmes = ('author','name','year_p','genre','location','accessory','total_vol','number_vol','availble_vol')
                 pass

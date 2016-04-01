@@ -5,7 +5,7 @@ from s_vol_c import *
 from m_vol_c import *
 from add_record import *
 t = S_vol()
-l = S_vol.new_record(t)
+l = new_record(t)
 K=[]
 db_f = shelve.open('book_db_2')
 for key in db_f:

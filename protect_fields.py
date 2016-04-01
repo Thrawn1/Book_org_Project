@@ -8,5 +8,6 @@ def protect_author():
     pass
 def protect_date():
     pass
+    #Прописать, что поле не может быть пустым
 def protect_location():
     pass
