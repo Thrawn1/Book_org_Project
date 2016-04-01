@@ -3,9 +3,8 @@
 import shelve
 from s_vol_c import *
 from m_vol_c import *
-from add_record import *
-t = S_vol()
-l = new_record(t)
+from new_record import *
+j = new_record()
 K=[]
 db_f = shelve.open('book_db_2')
 for key in db_f:
@@ -13,10 +12,6 @@ for key in db_f:
         print('\t',db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n')    
 print(K)
 
-#print(db_f['book_test10'].name)
-#print(db_f['book_test11'].name)
-#print(db_f['book_test12'].name)
-#print(db_f['book_test13'].name)
 #db = [book0,book1,book2,book3,book4,book5]
 #R = []
 #j = input('Введите имя автора:')
