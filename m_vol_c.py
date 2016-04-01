@@ -3,7 +3,7 @@
 from s_vol_c import *
 class M_vol(S_vol):
         #Данный класс описывает книгу, которая имеет несколько томов. Наследуется от класса книги без томов
-	def __init__(self,author,name,year_p,total_vol,number_vol,availble_vol,genre='',location=0,accessory = False):
+	def __init__(self,author='',name='',year_p=0,total_vol=0,number_vol=0,availble_vol=0,genre='',location=0,accessory = False):
                 #total_vol - всего томов в собрании;
                 #availble_vol - всего томов имеется в библиотеке;
                 #availble_vol - текущий номер тома
