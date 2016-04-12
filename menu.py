@@ -47,7 +47,7 @@ def menu (in00):
                     for key in z:
                         print('\t',db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n')
                 elif in_3 == '4':
-                    z = search_middle name(int(in_2))
+                    z = search_middle_name(int(in_2))
                     db_f = shelve.open('book_db_2')
                     for key in z:
                         print('\t',db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n') 
