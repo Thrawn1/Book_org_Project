@@ -10,7 +10,7 @@ def search_family(in1):
     db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
-    j = input('\nВведите имя автора:')
+    j = input('\nВведите фамилию автора: ')
     for b in K:
             c = db_f[b].author_family()
             if j == c and nm < in1:
@@ -21,7 +21,7 @@ def search_family(in1):
     if len(R) !=0:
         return R
     else:
-        print('Ничего не найдено!')
+        print('\nНичего не найдено!')
 
 def search_name(in1):
     R = []
@@ -30,7 +30,7 @@ def search_name(in1):
     db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
-    j = input('\nВведите имя название книги:')
+    j = input('\nВведите имя название книги: ')
     for b in K:
             c = db_f[b].name
             if j == c and nm < in1:
@@ -41,7 +41,7 @@ def search_name(in1):
     if len(R) !=0:
         return R
     else:
-        print('Ничего не найдено!')
+        print('\nНичего не найдено!')
 def search_middle_name(in1):
     R = []
     K = []
@@ -49,7 +49,7 @@ def search_middle_name(in1):
     db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
-    j = input('\nВведите имя и отчество автора:')
+    j = input('\nВведите имя и отчество автора: ')
     for b in K:
             c = db_f[b].author_name_middle_q()
             if j == c and nm < in1:
@@ -60,5 +60,5 @@ def search_middle_name(in1):
     if len(R) !=0:
         return R
     else:
-        print('Ничего не найдено!')
+        print('\nНичего не найдено!')
         return []
