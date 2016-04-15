@@ -8,7 +8,8 @@ def menu ():
         if in00 == '1':
                 add_book_func()
         elif in00 =='2':
-                menu_all_search()
+                in_2 = input('\n\nВведите количество резульатов поиска,отображаемых на экране: ')
+                menu_all_search(in_2)
         elif in00 =='3':
                 print('ВРЕМЕННО НЕ РАБОТАЕТ')
         elif in00 =='4':
