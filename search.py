@@ -129,3 +129,68 @@ def search_name_and_family(in1):
         else:
                 print('\nНичего не найдено!')
                 return []
+def search_genre_book(in1):
+        pass
+        R = []
+        K = []
+        nm = 0
+        db_f = shelve.open('book_db_2')
+        for key in db_f:
+                K.append(key)
+        j = input('\nВведите жанр книги: ')
+        for b in K:
+                c = db_f[b].genre
+                if j == c and nm < in1:
+                        R.append(b)
+                        nm = nm+1
+                else:
+                        pass
+        if len(R) !=0:
+                return R
+        else:
+                print('\nНичего не найдено!')
+                return []
+def search_year_pub(in1):
+        pass
+        R = []
+        K = []
+        nm = 0
+        db_f = shelve.open('book_db_2')
+        for key in db_f:
+                K.append(key)
+        j = input('\nВведите год издания: ')
+        for b in K:
+                c = db_f[b].year_p
+                if j == str(c) and nm < in1:
+                        R.append(b)
+                        nm = nm+1
+                else:
+                        pass
+        if len(R) !=0:
+                return R
+        else:
+                print('\nНичего не найдено!')
+                return []
+def search_location(in1):
+        pass
+        R = []
+        K = []
+        nm = 0
+        db_f = shelve.open('book_db_2')
+        for key in db_f:
+                K.append(key)
+        j = input('\nВведите номер полки, список книг с которой вы хотите получить: ')
+        for b in K:
+                c = db_f[b].location
+                if j == str(c) and nm < in1:
+                        R.append(b)
+                        nm = nm+1
+                else:
+                        pass
+        if len(R) !=0:
+                return R
+        else:
+                print('\nНичего не найдено!')
+                return []
+def search_archive():
+        pass
