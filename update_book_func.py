@@ -1,6 +1,6 @@
 from upd_record import *
 import shelve
-from protect_fields import *
+from update_for_key import *
 def update_book_func():
         print('\n\nВыберете вариант редактирования:\n\n1. По ключу(на экран будет выведен список наименований всех книг, фамилии и инициалы автора и ключ базы данных, необходимый для редактирования\n\n2. Редактирование записи, найденное через поиск\n\n')
         in00 = input('Введите пункт меню: ')

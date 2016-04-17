@@ -4,7 +4,7 @@ import shelve
 from protect_fields import *
 class S_vol:
         #Данный класс описывает книгу, которая не имеет томов
-        def __init__(self,author='',name='',year_p = 0,genre ='',location = 0,accessory = False):
+        def __init__(self,author='',name='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False):
                 #author - автор книги
                 #name - название книги
                 #genre - жанар книги 
@@ -17,6 +17,7 @@ class S_vol:
                 self.accessory = accessory
                 self.genre = genre
                 self.location = location
+                self.voluminous = voluminous
         def author_family(self):
         # Данная функция позволит получать Фамилию автора
                 return self.author.split()[0]
