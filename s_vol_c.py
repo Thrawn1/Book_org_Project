@@ -11,6 +11,7 @@ class S_vol:
                 # year_p - год издания книги;
                 #accessory - чужая ли книга(True - чужая,False - своя);
                 #location - полка, на которой находится книга
+                #voluminous - признак многотомности книги
                 self.author = author
                 self.name = name
                 self.year_p = year_p

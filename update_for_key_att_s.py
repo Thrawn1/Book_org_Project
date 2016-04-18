@@ -66,7 +66,13 @@ def update_for_key_att_s(db_f,z1,sm):
         elif in22 == '6':
                 field_1 = ('Чужая ли книга?')
                 kj = db_f[z1].accessory
-                print('\n\nСтарое значение: ', kj)
+                if kj == False:
+                    gh = 'Книга ваша'
+                elif kj == True:
+                    gh = 'Книга чужая'
+                else:
+                    print('Ошибка определения принадлежности книги!')
+                print('\n\nСтарое значение: ', gh)
                 while cb1 != 1:
                         new_b_1 = input('\t[%s]\n :' % (field_1))
                         cb1 = protect_author(new_b_1)
