@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from m_vol_c import *
 from s_vol_c import *
 from new_record_s import *

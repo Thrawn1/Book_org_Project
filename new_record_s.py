@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from protect_fields import *
 def single_book(self):
     fieldnmes = ('author','name','year_p','genre','location','accessory')

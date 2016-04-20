@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from menu_all_search import *
 from add_book_func import *
 from update_book_func import *

@@ -39,7 +39,7 @@ def update_for_key_att_s(db_f,z1,sm):
         elif in22 == '3':
                 field_1 = ('Год издания')
                 kj = db_f[z1].year_p
-                print('\n\nСтарое значение: ', kj)
+                print('\n\nСтарое значение: ', kj,' год')
                 while cb1 != 1:
                         new_b_1 = input('\t[%s]\nВведите год издания: ' % (field_1))
                         cb1 = protect_author(new_b_1)
@@ -57,7 +57,7 @@ def update_for_key_att_s(db_f,z1,sm):
         elif in22 == '5':
                 field_1 = ('Где расположена книга')
                 kj = db_f[z1].location
-                print('\n\nСтарое значение: ', kj)
+                print('\n\nСтарое значение: ','Полка №', kj)
                 while cb1 != 1:
                         new_b_1 = input('\t[%s]\nВведите № полки на которой находится книга: ' % (field_1))
                         cb1 = protect_author(new_b_1)
@@ -74,9 +74,17 @@ def update_for_key_att_s(db_f,z1,sm):
                     print('Ошибка определения принадлежности книги!')
                 print('\n\nСтарое значение: ', gh)
                 while cb1 != 1:
+                        print('Пожалуйста выберете один из вариантов:\n1. Книга ваша\n2. Книга чужая')
                         new_b_1 = input('\t[%s]\n :' % (field_1))
-                        cb1 = protect_author(new_b_1)
-                        if cb1 == 1:
-                                print('Yes!')
+                        if new_b_1 == '1':
+                                print('Yes! Книга своя')
+                                cb1 = 1
+                        elif new_b_1 == '2':
+                                print('Yes! Книга чужая')
+                                cb1 = 1
+                        else:
+                                print('Ошибка! Выберет один из двух вариантов')
+                                cb1 = 0
+                       
         else:
                 print('Введите коректный номер параметра записи!')
