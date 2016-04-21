@@ -1,6 +1,5 @@
 from menu_all_search import *
-from add_book_func import *
-from update_book_func import *
+from menu_update import *
 def menu ():
         print('Выберете действие:\n\n\n1.Внеcение записи в базу данных\n\n2.Поиск книг в базе данных\n\n3.Изменение в записи базы данных\n\n4.Удаление записи из базы данных(не работает)')
         in00 = input('\nВведите нужны пункт меню:')
@@ -10,7 +9,7 @@ def menu ():
                 in_2 = input('\n\nВведите количество резульатов поиска,отображаемых на экране: ')
                 menu_all_search(in_2)
         elif in00 =='3':
-                update_book_func()
+                menu_update()
         elif in00 =='4':
                 print('ВРЕМЕННО НЕ РАБОТАЕТ')
         else: 
