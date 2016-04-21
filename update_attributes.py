@@ -12,7 +12,7 @@ def update_att_author(db_f,tmp_book,z1):
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
                         new_b = '\''+str(new_b_1)+'\''
-                        setattr(tmp_book,author,eval(new_b))
+                        setattr(tmp_book,'author',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -45,7 +45,7 @@ def update_att_year_p(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nГод издания:' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'year_p',eval(new_b_1))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -62,7 +62,7 @@ def update_att_genre(db_f,tmp_book,z1):
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
                         new_b = '\''+str(new_b_1)+'\''
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'genre',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -78,7 +78,7 @@ def update_att_location(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите № полки на которой находится книга: ' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'location',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -102,7 +102,7 @@ def update_att_accessory(db_f,tmp_book,z1):
                 else:
                         print('Ошибка! Выберет один из двух вариантов')
                         cb1 = 0
-                setattr(self,field,cvv)
+                setattr(tmp_book,'accessory',cvv)
                 h2 = accessory_class(tmp_book)
                 sm1 = voluminous_book(db_f,z1)
                 print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
@@ -117,7 +117,7 @@ def update_att_total_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите количество томов в собрании:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'total_vol',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -133,7 +133,7 @@ def update_att_number_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите Номер тома:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'number_vol',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
@@ -149,7 +149,7 @@ def update_att_availble_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите количество томов, которые имеются в наличии:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(self,field,eval(new_b))
+                        setattr(tmp_book,'availble_vol',eval(new_b))
                         h1 = accessory_file (db_f,z1)
                         h2 = accessory_class(tmp_book)
                         sm1 = voluminous_book(db_f,z1)
