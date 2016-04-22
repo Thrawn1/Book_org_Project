@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from s_vol_c import *
 from m_vol_c import *
 import shelve

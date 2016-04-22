@@ -7,7 +7,7 @@ def menu_update_from_key_att(db_f,in11,R,K):
         z = int(in11) - 1
         if y == True and z >= 0:
                 z1 = K[z]
-                tmp_book=db_f[z1]
+                tmp_book = db_f[z1]
                 h1 = accessory_file(db_f,z1)
                 sm1 = voluminous_book(db_f,z1)
                 if sm1 == 'Книга имеет один том':
