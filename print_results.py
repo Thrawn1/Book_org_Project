@@ -12,6 +12,6 @@ def print_old_and_new_record(tmp_book,db_f,z1):
                 print('\n\n','\t','Новая запись',j,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
         else:
                 print('Ошибка определения парметра многотмности')
-def print_results_search(z):
+def print_results_search(z,db_f):
         for key in z:
                 print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n')

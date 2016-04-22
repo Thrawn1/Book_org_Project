@@ -3,11 +3,10 @@ from s_vol_c import *
 from new_record_s import *
 from new_record_m import *
 import shelve
-def new_record():
+def new_record(db_f):
     #Данная функция создает новую запись в БД
-    file_db = shelve.open('book_db_2')
     K1 = []
-    for key in file_db:
+    for key in db_f:
         K1.append(key)
     cv = len(K1) 
     y = 'book'+str(cv)
@@ -22,7 +21,6 @@ def new_record():
         t = multi_book(t1)
     else:
         print('\nВведено не верное значение!')
-    file_db[y]=t
-    file_db.close()
+    db_f[y]=t
     print('\nЗапись занесена!')
     return 1

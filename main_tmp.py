@@ -3,4 +3,6 @@
 from menu import *
 n = 0
 while n != 1:
-    menu()
+    db_f = shelve.open('book_db_2')
+    menu(db_f)
+    db_f.close()

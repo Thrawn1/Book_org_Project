@@ -1,11 +1,10 @@
 import shelve
 from menu_update_from_key_att import *
-def update_from_key():
+def update_from_key(db_f):
         K = []
         R = []
         tmp = 1
         tmp1 = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
                 R.append(tmp)

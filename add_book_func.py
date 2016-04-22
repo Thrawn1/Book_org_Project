@@ -2,12 +2,11 @@
 # -*- coding: utf-8 -*-
 import shelve
 from new_record import *
-def add_book_func():
+def add_book_func(db_f):
 #Данная функция была объявлена для удобства - теперь в menu.py все логично - формируется только меню и вызываются нужные функции, а не как раньше - добавление записи БД
 # Возможно стоит переработать функцию new_record, и объединить с этой, что бы не усложнять проект
-        j = new_record()
+        j = new_record(db_f)
         K=[]
-        db_f = shelve.open('book_db_2')
         print('Последние 15 записей:')
         for key in db_f:
                 K.append(key)

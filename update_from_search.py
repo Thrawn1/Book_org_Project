@@ -1,10 +1,9 @@
 from menu_all_search import *
 from menu_update_from_key_att import *
-def update_from_search(in_2):
-        db_f = shelve.open('book_db_2')
+def update_from_search(in_2,db_f):
         R = []
         K = []
-        n = menu_all_search(in_2)
+        n = menu_all_search(in_2,db_f)
         b = len(n)
         if b == 1:
                 K.append(n[0])

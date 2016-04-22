@@ -1,12 +1,11 @@
 from s_vol_c import *
 from m_vol_c import *
 import shelve
-def search_family(in1):
+def search_family(in1,db_f):
 #Поиск по фамили автора
     R = []
     K = []
     nm = 0
-    db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
     j = input('\nВведите фамилию автора: ')
@@ -22,12 +21,11 @@ def search_family(in1):
     else:
         print('\nНичего не найдено!')
 
-def search_name(in1):
+def search_name(in1,db_f):
 #Поиск по названию книги
     R = []
     K = []
     nm = 0
-    db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
     j = input('\nВведите имя название книги: ')
@@ -42,12 +40,11 @@ def search_name(in1):
         return R
     else:
         print('\nНичего не найдено!')
-def search_middle_name(in1):
+def search_middle_name(in1,db_f):
 # Поиск по имени-отчеству автора
     R = []
     K = []
     nm = 0
-    db_f = shelve.open('book_db_2')
     for key in db_f:
                 K.append(key)
     j = input('\nВведите имя и отчество автора: ')
@@ -63,12 +60,11 @@ def search_middle_name(in1):
     else:
         print('\nНичего не найдено!')
         return []
-def search_initials_family(in1):
+def search_initials_family(in1,db_f):
 # Поиск по фамилии и инициалам
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите инициалы и с пробелом фамилию автора: ')
@@ -84,12 +80,11 @@ def search_initials_family(in1):
         else:
                 print('\nНичего не найдено!')
                 return []
-def search_full_author(in1):
+def search_full_author(in1,db_f):
 # Поиск по Фамилии-Имени-Отчеству
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите фамилию, имя, отчество через пробел: ')
@@ -106,12 +101,11 @@ def search_full_author(in1):
                 print('\nНичего не найдено!')
                 return []
 
-def search_name_and_family(in1):
+def search_name_and_family(in1,db_f):
 #Поиск по фамилии и имени
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите имя и фамилию автора через один пробел: ')
@@ -127,12 +121,11 @@ def search_name_and_family(in1):
         else:
                 print('\nНичего не найдено!')
                 return []
-def search_genre_book(in1):
+def search_genre_book(in1,db_f):
         pass
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите жанр книги: ')
@@ -148,12 +141,11 @@ def search_genre_book(in1):
         else:
                 print('\nНичего не найдено!')
                 return []
-def search_year_pub(in1):
+def search_year_pub(in1,db_f):
         pass
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите год издания: ')
@@ -169,12 +161,11 @@ def search_year_pub(in1):
         else:
                 print('\nНичего не найдено!')
                 return []
-def search_location(in1):
+def search_location(in1,db_f):
         pass
         R = []
         K = []
         nm = 0
-        db_f = shelve.open('book_db_2')
         for key in db_f:
                 K.append(key)
         j = input('\nВведите номер полки, список книг с которой вы хотите получить: ')

@@ -1,13 +1,12 @@
-import shelve
 from update_from_key import *
 from update_from_search import *
-def menu_update():
+def menu_update(db_f):
         print('\n\nВыберете вариант редактирования:\n\n1. По ключу(на экран будет выведен список наименований всех книг, фамилии и инициалы автора и ключ базы данных, необходимый для редактирования\n\n2. Редактирование записи, найденное через поиск\n\n')
         in00 = input('Введите пункт меню: ')
         if in00 == '1':
-                 update_from_key()        
+                 update_from_key(db_f)        
         elif in00 == '2':
                 in_2 = input('\n\nВведите количество резульатов поиска,отображаемых на экране: ')
-                update_from_search(in_2)
+                update_from_search(in_2,db_f)
         else:
                 print('Введите корректное значение пункта меню!')
