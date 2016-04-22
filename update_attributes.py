@@ -2,6 +2,7 @@ import shelve
 from accessory_definition import *
 from voluminous_book import *
 from protect_fields import *
+from print_old_and_new_record import *
 def update_att_author(db_f,tmp_book,z1):
         cb1 = 0
         field_1 = ('Автор книги')
@@ -13,11 +14,7 @@ def update_att_author(db_f,tmp_book,z1):
                 if cb1 == 1:
                         new_b = '\''+str(new_b_1)+'\''
                         setattr(tmp_book,'author',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_name(db_f,tmp_book,z1):
         cb1 = 0
@@ -30,11 +27,7 @@ def update_att_name(db_f,tmp_book,z1):
                 if cb1 == 1:
                         new_b = '\''+str(new_b_1)+'\''
                         setattr(tmp_book,'name',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_year_p(db_f,tmp_book,z1):
         cb1 = 0
@@ -46,11 +39,7 @@ def update_att_year_p(db_f,tmp_book,z1):
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
                         setattr(tmp_book,'year_p',eval(new_b_1))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_genre(db_f,tmp_book,z1):
         cb1 = 0
@@ -63,11 +52,7 @@ def update_att_genre(db_f,tmp_book,z1):
                 if cb1 == 1:
                         new_b = '\''+str(new_b_1)+'\''
                         setattr(tmp_book,'genre',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_location(db_f,tmp_book,z1):
         cb1 = 0
@@ -79,11 +64,7 @@ def update_att_location(db_f,tmp_book,z1):
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
                         setattr(tmp_book,'location',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_accessory(db_f,tmp_book,z1):
         cb1 = 0
@@ -103,10 +84,7 @@ def update_att_accessory(db_f,tmp_book,z1):
                         print('Ошибка! Выберет один из двух вариантов')
                         cb1 = 0
                 setattr(tmp_book,'accessory',cvv)
-                h2 = accessory_class(tmp_book)
-                sm1 = voluminous_book(db_f,z1)
-                print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                print_old_and_new_record(tmp_book,db_f,z1)
                 return tmp_book
 def update_att_total_vol(db_f,tmp_book,z1):
         cb1 = 0
@@ -118,11 +96,7 @@ def update_att_total_vol(db_f,tmp_book,z1):
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
                         setattr(tmp_book,'total_vol',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_number_vol(db_f,tmp_book,z1):
         cb1 = 0
@@ -134,11 +108,7 @@ def update_att_number_vol(db_f,tmp_book,z1):
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
                         setattr(tmp_book,'number_vol',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book                       
 def update_att_availble_vol(db_f,tmp_book,z1):
         cb1 = 0
@@ -150,9 +120,5 @@ def update_att_availble_vol(db_f,tmp_book,z1):
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
                         setattr(tmp_book,'availble_vol',eval(new_b))
-                        h1 = accessory_file (db_f,z1)
-                        h2 = accessory_class(tmp_book)
-                        sm1 = voluminous_book(db_f,z1)
-                        print('\n\n','\t','Старая запись',sm1,'[',db_f[z1].author,db_f[z1].name,db_f[z1].year_p,db_f[z1].genre,h1,('Всего томов: '+str(db_f[z1].total_vol)),('Номер тома: '+str(db_f[z1].number_vol)),('Всего томов в библиотеке: '+str(db_f[z1].availble_vol)),('Полка №'+str(db_f[z1].location)),']','\n')
-                        print('\n\n','\t','Новая запись',sm1,'[',tmp_book.author,tmp_book.name,tmp_book.year_p,tmp_book.genre,h2,('Всего томов: '+str(tmp_book.total_vol)),('Номер тома: '+str(tmp_book.number_vol)),('Всего томов в библиотеке: '+str(tmp_book.availble_vol)),('Полка №'+str(tmp_book.location)),']','\n')
+                        print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book

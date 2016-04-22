@@ -15,4 +15,8 @@ def update_for_key():
                 print('\n','\t',num1,': ',db_f[b].author,db_f[b].name,db_f[b].year_p,('Полка №'+str(db_f[b].location)),'\n')
                 tmp1 = tmp1 + 1 
         in11 = input('Введите ключ записи, которую хотите отредактировать: ')
-        menu_update_from_key_att(db_f,in11,R,K)
+        v = menu_update_from_key_att(db_f,in11,R,K)
+        v1 = v[0]
+        v2 = v[1]
+        db_f[v2] = v1
+        db_f.close()
