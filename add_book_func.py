@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 import shelve
 from new_record import *
 def add_book_func(db_f):
