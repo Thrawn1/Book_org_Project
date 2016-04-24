@@ -2,13 +2,15 @@ from m_vol_c import *
 from s_vol_c import *
 from new_record_s import *
 from new_record_m import *
+from key_book_sort import *
 import shelve
 def new_record(db_f):
     #Данная функция создает новую запись в БД
     K1 = []
     for key in db_f:
         K1.append(key)
-    cv = len(K1) 
+    K = key_book_sort(K1)
+    cv = int(K[len(K) -1].split('k')[1]) + 1
     y = 'book'+str(cv)
     print('\n\n\nВыберете, какой тип книги хотите добавить:\n\n1.Однотомная книга \n\n2.Многотомное собрание сочинений')
     type_in = input('\n\nВведите пункт меню:')

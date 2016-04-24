@@ -3,6 +3,7 @@ from menu_update import *
 from print_results import *
 from add_book_func import *
 from delete_from_db import *
+from key_book_sort import *
 def menu (db_f):
         print('Выберете действие:\n\n\n1.Внеcение записи в базу данных\n\n2.Поиск книг в базе данных\n\n3.Изменение в записи базы данных\n\n4.Удаление записи из базы данных(не работает)')
         in00 = input('\nВведите нужны пункт меню:')
@@ -15,7 +16,7 @@ def menu (db_f):
         elif in00 =='3':
                 menu_update(db_f)
         elif in00 =='4':
-                z =['book18','book20']
+                z =['book0','book1']
                 delete_from_db(db_f,z)
         elif in00 == '5':
                 R = []
@@ -26,7 +27,8 @@ def menu (db_f):
                         R.append(key)
                         K.append(tmp)
                         tmp = tmp+1
-                for b in R:
+                K1 = key_book_sort(R)
+                for b in K1:
                         num1 = K[tmp1]
                         print('\n','\t',num1,': ',[b],db_f[b].author,db_f[b].name,db_f[b].year_p,('Полка №'+str(db_f[b].location)),'\n')
                         tmp1 = tmp1 + 1

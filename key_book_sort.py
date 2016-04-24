@@ -1,5 +1,6 @@
 def key_book_sort(K):
         R = []
+        t = 0
         for key in K:
                 v = int(K[t].split('k')[1])
                 R.append(v)
