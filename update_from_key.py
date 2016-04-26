@@ -17,7 +17,7 @@ def update_from_key(db_f):
                 n = db_f[b].voluminous
                 h = accessory_file (db_f,b)
                 if n == False:
-                        print('\n','\t',num1,'.','   [',db_f[b].author,db_f[key].name,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
+                        print('\n','\t',num1,'.','   [',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n ')
                 elif n == True:
                         print('\n','\t',num1,'.','   [',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Всего томов: '+str(db_f[b].total_vol)),('Номер тома: '+str(db_f[b].number_vol)),('Всего томов в библиотеке: '+str(db_f[b].availble_vol)),('Полка №'+str(db_f[b].location)),']','\n')
                 else:
