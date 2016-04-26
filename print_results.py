@@ -1,5 +1,6 @@
 from voluminous_book import *
 from accessory_definition import *
+from key_book_sort import *
 def print_old_and_new_record(tmp_book,db_f,z1):
         h1 = accessory_file (db_f,z1)
         h2 = accessory_class(tmp_book)
@@ -13,5 +14,13 @@ def print_old_and_new_record(tmp_book,db_f,z1):
         else:
                 print('Ошибка определения парметра многотмности')
 def print_results_search(z,db_f):
-        for key in z:
-                print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n')
+        z1 = key_book_sort(z)
+        for key in z1:
+                n = db_f[key].voluminous
+                h = accessory_file (db_f,key)
+                if n == False:
+                        print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
+                elif n == True:
+                        print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,db_f[key].genre,h,('Всего томов: '+str(db_f[key].total_vol)),('Номер тома: '+str(db_f[key].number_vol)),('Всего томов в библиотеке: '+str(db_f[key].availble_vol)),('Полка №'+str(db_f[key].location)),']','\n')
+                else:
+                       print('Ошибка определения многотмности')

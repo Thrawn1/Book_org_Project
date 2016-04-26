@@ -4,6 +4,7 @@ from s_vol_c import *
 from new_record_s import *
 from new_record_m import *
 from key_book_sort import *
+from accessory_definition import *
 def add_book_func(db_f):
 #Данная функция была объявлена для удобства - теперь в menu.py все логично - формируется только меню и вызываются нужные функции, а не как раньше - добавление записи БД
 # Возможно стоит переработать функцию new_record, и объединить с этой, что бы не усложнять проект
@@ -36,9 +37,14 @@ def add_book_func(db_f):
         vn = d - 15
         vn1 = d - 1
         J = M[vn:d:1]
-        print(d,vn,vn1)
-        print(J)
         for key in J:
-                print('\t',key,db_f[key].author,db_f[key].name,db_f[key].year_p,('Полка №'+str(db_f[key].location)),'\n')
+                n = db_f[key].voluminous
+                h = accessory_file (db_f,key)
+                if n == False:
+                        print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
+                elif n == True:
+                        print('\n','\t',db_f[key].author,db_f[key].name,db_f[key].year_p,db_f[key].genre,h,('Всего томов: '+str(db_f[key].total_vol)),('Номер тома: '+str(db_f[key].number_vol)),('Всего томов в библиотеке: '+str(db_f[key].availble_vol)),('Полка №'+str(db_f[key].location)),']','\n')
+                else:
+                       print('Ошибка определения многотмности')
         else: pass
         print('Всего записей в базе данных:',len(M))
