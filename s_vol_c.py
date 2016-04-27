@@ -1,11 +1,10 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 import shelve
-import datetime
 from protect_fields import *
 class S_vol:
         #Данный класс описывает книгу, которая не имеет томов
-        def __init__(self,author='',name='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False,archiv = False ,comment_archive = '',data_creating,data_last_editing,data_archive):
+        def __init__(self,author='',name='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False,archive = False ,comment_archive = '',data_creating,data_last_editing,data_archive):
                 #author - автор книги
                 #name - название книги
                 #genre - жанар книги 
@@ -20,6 +19,11 @@ class S_vol:
                 self.genre = genre
                 self.location = location
                 self.voluminous = voluminous
+		self.archive = archive
+		self.comment_archive = comment_archive
+		self.data_creating = data_creating
+		self.data_last_editing = data_last_editing
+		self.data_archive = data_archive
         def author_family(self):
         # Данная функция позволит получать Фамилию автора
                 return self.author.split()[0]
