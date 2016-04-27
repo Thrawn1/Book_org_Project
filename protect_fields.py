@@ -13,7 +13,7 @@ def protect_author(in1):
 def protect_date(in1):
     if in1.isdigit() == True:
         in2 = int(in1)
-        if in2 > 1800 and in2 < 2500:
+        if in2 > 1900 and in2 < 2100:
             return 1
         else:
              print('Введено не верное значение!')
