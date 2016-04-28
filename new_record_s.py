@@ -1,5 +1,10 @@
 from protect_fields import *
+import datetime
 def single_book(self):
+    time = datetime.datetime.now()
+    date_str = time.strftime("%d-%m-%Y")
+    d = '\''+ date_str + '\''
+    setattr(self,'data_creating',eval(d))
     fieldnmes = ('author','name','year_p','genre','location','accessory')
     fieldnmes_1 = ('Автор книги','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
     rt = 0

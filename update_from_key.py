@@ -27,5 +27,9 @@ def update_from_key(db_f):
         v = menu_update_from_key_att(db_f,in11,R,K)
         v1 = v[0]
         v2 = v[1]
+        time = datetime.datetime.now()
+        date_str = time.strftime("%d-%m-%Y")
+        d = '\''+ date_str + '\''
+        setattr(v1,'data_last_editing',eval(d))
         db_f[v2] = v1
         db_f.close()

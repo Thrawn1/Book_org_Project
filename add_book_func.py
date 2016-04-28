@@ -11,8 +11,11 @@ def add_book_func(db_f):
         K1 = []
         for key in db_f:
                 K1.append(key)
-        K = key_book_sort(K1)
-        cv = int(K[len(K) -1].split('k')[1]) + 1
+        if K1 == []:
+                cv = 0
+        else:
+                K = key_book_sort(K1)
+                cv = int(K[len(K) -1].split('k')[1]) + 1
         y = 'book'+str(cv)
         print('\n\n\nВыберете, какой тип книги хотите добавить:\n\n1.Однотомная книга \n\n2.Многотомное собрание сочинений')
         type_in = input('\n\nВведите пункт меню:')
