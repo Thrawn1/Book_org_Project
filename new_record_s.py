@@ -5,8 +5,8 @@ def single_book(self):
     date_str = time.strftime("%d-%m-%Y")
     d = '\''+ date_str + '\''
     setattr(self,'data_creating',eval(d))
-    fieldnmes = ('author','name','year_p','genre','location','accessory')
-    fieldnmes_1 = ('Автор книги','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
+    fieldnmes = ('foreign_author','author_family','author_middle_name','author_name','name','year_p','genre','location','accessory')
+    fieldnmes_1 = ('Автор иностранный?','Фамилия автора','Отчество автора','Имя автора','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
     rt = 0
     for field in fieldnmes:
         cb = 0
@@ -43,9 +43,9 @@ def single_book(self):
             new_b = '\''+str(new_b_1)+'\''
             setattr(self,field,eval(new_b))
             rt = rt+1
-        elif field == 'author':
+        elif field == 'author_name':
             while cb != 1:
-                new_b_1 = input('\t[%s]\nВведите Фамилию, Имя,Отчество автора:' % (field_1))
+                new_b_1 = input('\t[%s]\nВведите имя автора:' % (field_1))
                 cb = protect_author(new_b_1)
                 if cb == 1:
                     new_b = '\''+str(new_b_1)+'\''
@@ -61,4 +61,33 @@ def single_book(self):
                     setattr(self,field,eval(new_b))
                     rt = rt+1
                 else: pass
+        elif field == 'author_family':
+            while cb != 1:
+                new_b_1 = input('\t[%s]\nВведите фамилию автора:' % (field_1))
+                cb = protect_name(new_b_1)
+                if cb == 1:
+                    new_b = '\''+str(new_b_1)+'\''
+                    setattr(self,field,eval(new_b))
+                    rt = rt+1
+                else: pass
+        elif field == 'author_middle_name':
+            while cb != 1:
+                new_b_1 = input('\t[%s]\nВведите отчество автора:' % (field_1))
+                cb = protect_name(new_b_1)
+                if cb == 1:
+                    new_b = '\''+str(new_b_1)+'\''
+                    setattr(self,field,eval(new_b))
+                    rt = rt+1
+                else: pass
+        elif field == 'foreign_author':
+            print('Пожалуйста выберете один из вариантов:\n1. Автор отечественный\n2. Автор зарубежный')
+            new_b = int(input('\t[%s]\n:' % (field_1)))
+            if new_b == 1:
+                setattr(self,field,False)
+                rt = rt+1
+            elif new_b == 2:
+                setattr(self,field,True)
+                rt = rt+1
+            else:
+                print('Выбрано недопустимое значение!')
     return self
