@@ -5,28 +5,85 @@ from protect_fields import *
 from print_results import *
 def update_att_author(db_f,tmp_book,z1):
         cb1 = 0
-        field_1 = ('Автор книги')
-        kj = db_f[z1].author
-        print('\n\nСтарое значение: ', kj)
-        while cb1 != 1:
-                new_b_1 = input('\t[%s]\nВведите Фамилию, Имя,Отчество автора: ' % (field_1))
-                cb1 = protect_author(new_b_1)
-                if cb1 == 1:
-                        new_b = '\''+str(new_b_1)+'\''
-                        setattr(tmp_book,'author',eval(new_b))
-                        print_old_and_new_record(tmp_book,db_f,z1)
-                        return tmp_book
-def update_att_name(db_f,tmp_book,z1):
+        nnn = 9
+        mmm = 999
+        kj = str(db_f[z1].author_name) +' '+ str(db_f[z1].author_middle_name) + ' ' + str(db_f[z1].author_family)
+        while nnn != 1:
+                print('\n\nСтарое значение: ', kj)        
+                print('\n\nВыберете, что вы хотите отредактировать:\n\n\t1. Имя автора\n\n\t2. Отчество автора\n\n\t3. Фамилию автора')
+                in10 = input('\n\n\nВведите пункт меню: ')
+                if in10 == '1':
+                        field_1 = ('Имя автора книги')
+                        while cb1 != 1:
+                                new_b_1 = input('\t[%s]\nВведите имя автора: ' % (field_1))
+                                cb1 = protect_author(new_b_1)
+                                if cb1 == 1:
+                                        setattr(tmp_book,'author_name',new_b_1)
+                                        print_old_and_new_record(tmp_book,db_f,z1)
+                                        print('Вы хотите отредактировать автора еще? Да/Нет')
+                                        while mmm != 0:
+                                                jk = input('Введите подверждение:')
+                                                jk1 = jk.lower()
+                                                if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
+                                                        nnn = 2
+                                                        mmm = 0
+                                                elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
+                                                        nnn = 1
+                                                        return tmp_book
+                                                        mmm = 0
+                                                else:
+                                                        print('Введите нормальное подверждение!')
+                                                        mmm = 1
+                elif in10 == '2':
+                        field_1 = ('Отчество автора книги')
+                        while cb1 != 1:
+                                new_b_1 = input('\t[%s]\nВведите отчество автора: ' % (field_1))
+                                cb1 = protect_author(new_b_1)
+                                if cb1 == 1:
+                                        setattr(tmp_book,'author_middle_name',new_b_1)
+                                        print_old_and_new_record(tmp_book,db_f,z1)
+                                        print('Вы хотите отредактировать автора еще? Да/Нет')
+                                        jk = input('Введите подверждение:')
+                                        jk1 = jk.lower()
+                                        if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
+                                                nnn = 2
+                                        elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
+                                                nnn = 1
+                                                return tmp_book
+                                        else:
+                                                print('Введите нормальное подверждение!')
+                elif in10 == '3':
+                        field_1 = ('Фамилия автора книги')
+                        while cb1 != 1:
+                                new_b_1 = input('\t[%s]\nВведите фамилию автора: ' % (field_1))
+                                cb1 = protect_author(new_b_1)
+                                if cb1 == 1:
+                                        setattr(tmp_book,'author_family',new_b_1)
+                                        print_old_and_new_record(tmp_book,db_f,z1)
+                                        print('Вы хотите отредактировать автора еще? Да/Нет')
+                                        jk = input('Введите подверждение:')
+                                        jk1 = jk.lower()
+                                        if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
+                                                nnn = 2
+                                        elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
+                                                nnn = 1
+                                                return tmp_book
+                                        else:
+                                                print('Введите нормальное подверждение!')
+                else:
+                        print('Выбрано недопустимое значение!')
+        
+        
+def update_att_name_book(db_f,tmp_book,z1):
         cb1 = 0
         field_1 = ('Название книги')
-        kj = db_f[z1].name
+        kj = db_f[z1].name_book
         print('\n\nСтарое значение: ', kj)
         while cb1 != 1:
                 new_b_1 = input('\t[%s]\nВведите название книги: ' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        new_b = '\''+str(new_b_1)+'\''
-                        setattr(tmp_book,'name',eval(new_b))
+                        setattr(tmp_book,'name_book',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_year_p(db_f,tmp_book,z1):
@@ -38,7 +95,7 @@ def update_att_year_p(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nГод издания:' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        setattr(tmp_book,'year_p',eval(new_b_1))
+                        setattr(tmp_book,'year_p',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_genre(db_f,tmp_book,z1):
@@ -50,8 +107,7 @@ def update_att_genre(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите Жанр:' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        new_b = '\''+str(new_b_1)+'\''
-                        setattr(tmp_book,'genre',eval(new_b))
+                        setattr(tmp_book,'genre',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_location(db_f,tmp_book,z1):
@@ -63,7 +119,7 @@ def update_att_location(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите № полки на которой находится книга: ' % (field_1))
                 cb1 = protect_author(new_b_1)
                 if cb1 == 1:
-                        setattr(tmp_book,'location',eval(new_b))
+                        setattr(tmp_book,'location',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_accessory(db_f,tmp_book,z1):
@@ -95,7 +151,7 @@ def update_att_total_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите количество томов в собрании:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(tmp_book,'total_vol',eval(new_b))
+                        setattr(tmp_book,'total_vol',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book
 def update_att_number_vol(db_f,tmp_book,z1):
@@ -107,7 +163,7 @@ def update_att_number_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите Номер тома:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(tmp_book,'number_vol',eval(new_b))
+                        setattr(tmp_book,'number_vol',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book                       
 def update_att_availble_vol(db_f,tmp_book,z1):
@@ -119,6 +175,6 @@ def update_att_availble_vol(db_f,tmp_book,z1):
                 new_b_1 = input('\t[%s]\nВведите количество томов, которые имеются в наличии:' % (field_1))
                 cb1 = protect_total_vol(new_b_1)
                 if cb1 == 1:
-                        setattr(tmp_book,'availble_vol',eval(new_b))
+                        setattr(tmp_book,'availble_vol',new_b_1)
                         print_old_and_new_record(tmp_book,db_f,z1)
                         return tmp_book

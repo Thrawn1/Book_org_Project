@@ -29,7 +29,7 @@ def menu (db_f):
                 K1 = key_book_sort(R)
                 for b in K1:
                         num1 = K[tmp1]
-                        print('\n','\t',num1,': ',[b],db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name,db_f[b].year_p,('Полка №'+str(db_f[b].location)),db_f[b].data_creating,db_f[b].data_last_editing,db_f[b].data_archive,'\n')
+                        print('\n','\t',num1,': ',[b],db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,('Полка №'+str(db_f[b].location)),db_f[b].data_creating,db_f[b].data_last_editing,db_f[b].data_archive,'\n')
                         tmp1 = tmp1 + 1
         else: 
                 print ('\n\nВведен не верный пункт меню или не допустимое значение!')

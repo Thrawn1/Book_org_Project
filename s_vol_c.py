@@ -3,14 +3,14 @@ from author_class import *
 from protect_fields import *
 class S_vol(Author):
         #Данный класс описывает книгу, которая не имеет томов
-        def __init__(self,name='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False,archive = False ,comment_archive = '',data_creating='',data_last_editing='',data_archive=''):
+        def __init__(self,name_book='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False,archive = False ,comment_archive = '',data_creating='',data_last_editing='',data_archive=''):
                 #name - название книги
                 #genre - жанар книги 
                 # year_p - год издания книги;
                 #accessory - чужая ли книга(True - чужая,False - своя);
                 #location - полка, на которой находится книга
                 #voluminous - признак многотомности книги
-                self.name = name
+                self.name_book = name_book
                 self.year_p = year_p
                 self.accessory = accessory
                 self.genre = genre

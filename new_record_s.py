@@ -3,10 +3,9 @@ import datetime
 def single_book(self):
     time = datetime.datetime.now()
     date_str = time.strftime("%d-%m-%Y")
-    d = '\''+ date_str + '\''
-    setattr(self,'data_creating',eval(d))
-    fieldnmes = ('foreign_author','author_family','author_middle_name','author_name','name','year_p','genre','location','accessory')
-    fieldnmes_1 = ('Автор иностранный?','Фамилия автора','Отчество автора','Имя автора','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
+    setattr(self,'data_creating',date_str)
+    fieldnmes = ('foreign_author','author_family','author_name','author_middle_name','name_book','year_p','genre','location','accessory')
+    fieldnmes_1 = ('Автор иностранный?','Фамилия автора','Имя автора','Отчество автора','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
     rt = 0
     for field in fieldnmes:
         cb = 0
@@ -16,7 +15,7 @@ def single_book(self):
                 new_b = input('\t[%s]\nВведите год издания:' % (field_1))
                 cb = protect_date(new_b)
                 if cb == 1:
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b)
                     rt = rt+1
                 else: pass
         elif field == 'location':
@@ -24,7 +23,7 @@ def single_book(self):
                 new_b = input('\t[%s]\nВведите номер полки:' % (field_1))
                 cb = protect_location(new_b)
                 if cb == 1:
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b)
                     rt = rt+1
                 else: pass
         elif field == 'accessory':
@@ -40,25 +39,22 @@ def single_book(self):
                 print('Выбрано недопустимое значение!')
         elif field == 'genre':
             new_b_1 = input('\t[%s]\nВведите жанр =>' % (field_1))
-            new_b = '\''+str(new_b_1)+'\''
-            setattr(self,field,eval(new_b))
+            setattr(self,field,new_b_1)
             rt = rt+1
         elif field == 'author_name':
             while cb != 1:
                 new_b_1 = input('\t[%s]\nВведите имя автора:' % (field_1))
                 cb = protect_author(new_b_1)
                 if cb == 1:
-                    new_b = '\''+str(new_b_1)+'\''
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b_1)
                     rt = rt+1
                 else: pass
-        elif field == 'name':
+        elif field == 'name_book':
             while cb != 1:
                 new_b_1 = input('\t[%s]\nВведите название книги:' % (field_1))
                 cb = protect_name(new_b_1)
                 if cb == 1:
-                    new_b = '\''+str(new_b_1)+'\''
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b_1)
                     rt = rt+1
                 else: pass
         elif field == 'author_family':
@@ -66,8 +62,7 @@ def single_book(self):
                 new_b_1 = input('\t[%s]\nВведите фамилию автора:' % (field_1))
                 cb = protect_name(new_b_1)
                 if cb == 1:
-                    new_b = '\''+str(new_b_1)+'\''
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b_1)
                     rt = rt+1
                 else: pass
         elif field == 'author_middle_name':
@@ -75,8 +70,7 @@ def single_book(self):
                 new_b_1 = input('\t[%s]\nВведите отчество автора:' % (field_1))
                 cb = protect_name(new_b_1)
                 if cb == 1:
-                    new_b = '\''+str(new_b_1)+'\''
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b_1)
                     rt = rt+1
                 else: pass
         elif field == 'foreign_author':

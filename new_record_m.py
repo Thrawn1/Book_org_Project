@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 from protect_fields import *
 def multi_book(self):
     fieldnmes = ('total_vol','number_vol','availble_vol')
@@ -13,7 +11,7 @@ def multi_book(self):
                 new_b = input('\t[%s]\nВведите общее количество томов в собрании:' % (field_1))
                 cb = protect_total_vol(new_b)
                 if cb == 1:
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b)
                     rt = rt+1
                 else: pass
         elif field == 'number_vol':
@@ -21,7 +19,7 @@ def multi_book(self):
                 new_b = input('\t[%s]\nВведите номер тома:' % (field_1))
                 cb = protect_total_vol(new_b)
                 if cb == 1:
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b)
                     rt = rt+1
                 else: pass
         elif field == 'availble_vol':
@@ -29,7 +27,7 @@ def multi_book(self):
                 new_b = input('\t[%s]\nВведите  количество томов в наличии:' % (field_1))
                 cb = protect_total_vol(new_b)
                 if cb == 1:
-                    setattr(self,field,eval(new_b))
+                    setattr(self,field,new_b)
                     rt = rt+1
                 else: pass
     return self
