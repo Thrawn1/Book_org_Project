@@ -4,16 +4,15 @@ from voluminous_book import *
 from protect_fields import *
 from print_results import *
 def update_att_author(db_f,tmp_book,z1):
-        cb1 = 0
-        nnn = 9
-        mmm = 999
         kj = str(db_f[z1].author_name) +' '+ str(db_f[z1].author_middle_name) + ' ' + str(db_f[z1].author_family)
+        nnn = 9
         while nnn != 1:
                 print('\n\nСтарое значение: ', kj)        
                 print('\n\nВыберете, что вы хотите отредактировать:\n\n\t1. Имя автора\n\n\t2. Отчество автора\n\n\t3. Фамилию автора')
                 in10 = input('\n\n\nВведите пункт меню: ')
                 if in10 == '1':
                         field_1 = ('Имя автора книги')
+                        cb1 = 0
                         while cb1 != 1:
                                 new_b_1 = input('\t[%s]\nВведите имя автора: ' % (field_1))
                                 cb1 = protect_author(new_b_1)
@@ -21,6 +20,7 @@ def update_att_author(db_f,tmp_book,z1):
                                         setattr(tmp_book,'author_name',new_b_1)
                                         print_old_and_new_record(tmp_book,db_f,z1)
                                         print('Вы хотите отредактировать автора еще? Да/Нет')
+                                        mmm = 1
                                         while mmm != 0:
                                                 jk = input('Введите подверждение:')
                                                 jk1 = jk.lower()
@@ -36,6 +36,7 @@ def update_att_author(db_f,tmp_book,z1):
                                                         mmm = 1
                 elif in10 == '2':
                         field_1 = ('Отчество автора книги')
+                        cb1 = 0
                         while cb1 != 1:
                                 new_b_1 = input('\t[%s]\nВведите отчество автора: ' % (field_1))
                                 cb1 = protect_author(new_b_1)
@@ -43,17 +44,23 @@ def update_att_author(db_f,tmp_book,z1):
                                         setattr(tmp_book,'author_middle_name',new_b_1)
                                         print_old_and_new_record(tmp_book,db_f,z1)
                                         print('Вы хотите отредактировать автора еще? Да/Нет')
-                                        jk = input('Введите подверждение:')
-                                        jk1 = jk.lower()
-                                        if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
-                                                nnn = 2
-                                        elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
-                                                nnn = 1
-                                                return tmp_book
-                                        else:
-                                                print('Введите нормальное подверждение!')
+                                        mmm = 1
+                                        while mmm != 0:
+                                                jk = input('Введите подверждение:')
+                                                jk1 = jk.lower()
+                                                if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
+                                                        nnn = 2
+                                                        mmm = 0
+                                                elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
+                                                        nnn = 1
+                                                        return tmp_book
+                                                        mmm = 0
+                                                else:
+                                                        print('Введите нормальное подверждение!')
+                                                        mmm = 1
                 elif in10 == '3':
                         field_1 = ('Фамилия автора книги')
+                        cb1 = 0
                         while cb1 != 1:
                                 new_b_1 = input('\t[%s]\nВведите фамилию автора: ' % (field_1))
                                 cb1 = protect_author(new_b_1)
@@ -61,15 +68,20 @@ def update_att_author(db_f,tmp_book,z1):
                                         setattr(tmp_book,'author_family',new_b_1)
                                         print_old_and_new_record(tmp_book,db_f,z1)
                                         print('Вы хотите отредактировать автора еще? Да/Нет')
-                                        jk = input('Введите подверждение:')
-                                        jk1 = jk.lower()
-                                        if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
-                                                nnn = 2
-                                        elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
-                                                nnn = 1
-                                                return tmp_book
-                                        else:
-                                                print('Введите нормальное подверждение!')
+                                        mmm = 1
+                                        while mmm != 0:
+                                                jk = input('Введите подверждение:')
+                                                jk1 = jk.lower()
+                                                if jk1 == 'да' or jk1 == 'yes' or jk1 == 'y' or jk1 =='д':
+                                                        nnn = 2
+                                                        mmm = 0
+                                                elif jk1 == 'нет' or jk1 == 'no' or jk1 == 'н' or jk1 =='n':
+                                                        nnn = 1
+                                                        return tmp_book
+                                                        mmm = 0
+                                                else:
+                                                        print('Введите нормальное подверждение!')
+                                                        mmm = 1
                 else:
                         print('Выбрано недопустимое значение!')
         

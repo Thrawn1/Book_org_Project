@@ -23,9 +23,9 @@ def update_from_search(in_2,db_f):
                         n = db_f[b].voluminous
                         h = accessory_file (db_f,b)
                         if n == False:
-                                print('\n','\t',num1,'.','   [',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
+                                print('\n','\t',num1,'.','   [',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
                         elif n == True:
-                                print('\n','\t',num1,'.','   [',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Всего томов: '+str(db_f[b].total_vol)),('Номер тома: '+str(db_f[b].number_vol)),('Всего томов в библиотеке: '+str(db_f[b].availble_vol)),('Полка №'+str(db_f[b].location)),']','\n')
+                                print('\n','\t',num1,'.','   [',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Всего томов: '+str(db_f[b].total_vol)),('Номер тома: '+str(db_f[b].number_vol)),('Всего томов в библиотеке: '+str(db_f[b].availble_vol)),('Полка №'+str(db_f[b].location)),']','\n')
                         else:
                                 print('Ошибка определения многотмности')
                         tmp1 = tmp1 + 1 
@@ -38,6 +38,6 @@ def update_from_search(in_2,db_f):
         time = datetime.datetime.now()
         date_str = time.strftime("%d-%m-%Y")
         d = '\''+ date_str + '\''
-        setattr(v1,'data_last_editing',eval(d))
+        setattr(v1,'data_last_editing',d)
         db_f[v2] = v1
         db_f.close()

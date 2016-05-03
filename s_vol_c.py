@@ -24,12 +24,6 @@ class S_vol(Author):
         def author_family(self):
         # Данная функция позволит получать Фамилию автора
                 return self.author.split()[0]
-        def author_initial(self):
-        #Данная функция позволяет получить инициалы и фамию автора. 
-                a1 = self.author.split()[1]
-                a2 = self.author.split()[2]
-                i1 = a1[0] + '.'+ a2[0]+'. '+ self.author.split()[0]
-                return i1
         def save_db(self):
         #Данная функция сохраняет запись в БД
                 file_db = shelve.open('book_db_1')
@@ -41,12 +35,6 @@ class S_vol(Author):
                 file_db[y] = self
                 print ('Done record!')
                 file_db.close()
-        def author_name_middle_q(self):
-        #Данная функция позволяет получить имя и отчество автора
-                a1 = self.author.split()[1]
-                a2 = self.author.split()[2]
-                i1 = a1 +' '+ a2
-                return i1
         def author_family_and_name_q(self):
         #Данная функция позволяет получить имя и фамилию автора
                 a1 = self.author.split()[0]

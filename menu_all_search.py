@@ -9,7 +9,7 @@ def menu_all_search(in_2,db_f):
                 in_1 = input('\n\nВведите номер пункта меню: ')
                 if in_1 == '1':
                 # Поиск по названию книги
-                        z = search_name(int(in_2),db_f)
+                        z = search_name_book(int(in_2),db_f)
                         return z
                 elif in_1 == '2':
                 # Вызов меню для различных вариантов поиска по автору

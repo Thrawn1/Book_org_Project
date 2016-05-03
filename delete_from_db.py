@@ -13,9 +13,9 @@ def delete_from_db (db_f):
                         h = accessory_file (db_f,b)
                         j = voluminous_book(db_f,b)
                         if j == 'Книга имеет один том':
-                                print('\n\n','\t','[',b,']',j,'[',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
+                                print('\n\n','\t','[',b,']',j,'[',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
                         elif j == 'Книга имеет несколько томов':
-                                print('\n\n','\t','[',b,']',j,'[',db_f[b].author,db_f[b].name,db_f[b].year_p,db_f[b].genre,h,('Всего томов: '+str(db_f[b].total_vol)),('Номер тома: '+str(db_f[b].number_vol)),('Всего томов в библиотеке: '+str(db_f[b].availble_vol)),('Полка №'+str(db_f[b].location)),']','\n')
+                                print('\n\n','\t','[',b,']',j,'[',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Всего томов: '+str(db_f[b].total_vol)),('Номер тома: '+str(db_f[b].number_vol)),('Всего томов в библиотеке: '+str(db_f[b].availble_vol)),('Полка №'+str(db_f[b].location)),']','\n')
                         else:
                                 print('Ошибка определения парметра многотмности')
                 u = input('Введите ключ: ')

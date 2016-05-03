@@ -8,9 +8,11 @@ def search_family(in1,db_f):
     nm = 0
     for key in db_f:
                 K.append(key)
-    j = input('\nВведите фамилию автора: ')
+    j1 = input('\nВведите фамилию автора: ')
+    j = j1.lower()
     for b in K:
-            c = db_f[b].author_family()
+            c1 = db_f[b].author_family()
+            c = c1.lower()
             if j == c and nm < in1:
                 R.append(b)
                 nm = nm+1
@@ -21,7 +23,7 @@ def search_family(in1,db_f):
     else:
         print('\nНичего не найдено!')
 
-def search_name(in1,db_f):
+def search_name_book(in1,db_f):
 #Поиск по названию книги
     R = []
     K = []
@@ -30,7 +32,7 @@ def search_name(in1,db_f):
                 K.append(key)
     j = input('\nВведите имя название книги: ')
     for b in K:
-            c = db_f[b].name
+            c = db_f[b].name_book
             if j == c and nm < in1:
                 R.append(b)
                 nm = nm + 1
@@ -47,7 +49,8 @@ def search_middle_name(in1,db_f):
     nm = 0
     for key in db_f:
                 K.append(key)
-    j = input('\nВведите имя и отчество автора: ')
+    j1 = input('\nВведите имя и отчество автора через один пробел: ')
+    j = j1.lower()
     for b in K:
             c = db_f[b].author_name_middle_q()
             if j == c and nm < in1:
@@ -70,7 +73,9 @@ def search_initials_family(in1,db_f):
         j = input('\nВведите инициалы и с пробелом фамилию автора: ')
         for b in K:
                 c = db_f[b].author_initial()
-                if j == c and nm < in1:
+                c1 = c[0]
+                c2 = c[1]
+                if j == c1 or j == c2 and nm < in1:
                         R.append(b)
                         nm = nm+1
                 else:
@@ -87,9 +92,11 @@ def search_full_author(in1,db_f):
         nm = 0
         for key in db_f:
                 K.append(key)
-        j = input('\nВведите фамилию, имя, отчество через пробел: ')
+        j1 = input('\nВведите фамилию, имя, отчество через один пробел: ')
+        j = j1.lower()
         for b in db_f:
-                c = db_f[b].author
+                c1 = str(db_f[b].author_family) + ' ' + str(db_f[b].author_name) +' '+ str(db_f[b].author_middle_name)
+                c = c1.lower()
                 if j == c and nm < in1:
                         R.append(b)
                         nm = nm+1
@@ -108,10 +115,14 @@ def search_name_and_family(in1,db_f):
         nm = 0
         for key in db_f:
                 K.append(key)
-        j = input('\nВведите имя и фамилию автора через один пробел: ')
+        j1 = input('\nВведите имя и фамилию автора через один пробел: ')
+        j = j1.lower()
         for b in K:
-                c = db_f[b].author_family_and_name_q()
-                if j == c and nm < in1:
+                c = db_f[b].author_name_and_family()
+                print(c)
+                c1 = c[0]
+                c2 = c[1]
+                if j == c1 or j == c2 and nm < in1:
                         R.append(b)
                         nm = nm+1
                 else:
