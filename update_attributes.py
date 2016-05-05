@@ -1,6 +1,4 @@
 import shelve
-from accessory_definition import *
-from voluminous_book import *
 from protect_fields import *
 from print_results import *
 def update_att_author(db_f,tmp_book,z1):

@@ -1,6 +1,5 @@
 import shelve
 from author_class import *
-from protect_fields import *
 class S_vol(Author):
         #Данный класс описывает книгу, которая не имеет томов
         def __init__(self,name_book='',year_p = 0,genre ='',location = 0,accessory = False,voluminous = False,archive = False ,comment_archive = '',data_creating='',data_last_editing='',data_archive=''):
@@ -24,23 +23,30 @@ class S_vol(Author):
         def author_family(self):
         # Данная функция позволит получать Фамилию автора
                 return self.author.split()[0]
-        def save_db(self):
-        #Данная функция сохраняет запись в БД
-                file_db = shelve.open('book_db_1')
-                K1 = []
-                for key in file_db:
-                        K1.append(key)
-                cv = len(K1) 
-                y = 'book'+str(cv)
-                file_db[y] = self
-                print ('Done record!')
-                file_db.close()
-        def author_family_and_name_q(self):
-        #Данная функция позволяет получить имя и фамилию автора
-                a1 = self.author.split()[0]
-                a2 = self.author.split()[1]
-                i1 = a2 + ' ' + a1
-                return i1
-        #Подумать об оставшихся атрибутах - архивном атрибуте( и методе, который будет переводить книгу в архив) 
-        #Реализовать метод редактирования уже существующих записей 
-        #Зачатки графического интефейса - продумать каким образом он будет выглядеть - нарисовать окна, проудумать структуру.
+        def accessory_type(self):
+                h = self.accessory
+                if h == False:
+                        h1 = 'Книга своя'
+                else:
+                        h1 = 'Книга чужая'
+                return h1
+        def voluminous_type(self):
+                sm = db_f[z1].voluminous
+                if sm == False:
+                        sm1 = 'Книга имеет один том'
+                elif sm == True:
+                        sm1 = 'Книга имеет несколько томов'                       
+                else:
+                        print('Ошибка определения атрибута многотомности')
+                        sm1 = ''
+                return sm1
+        def archive_type(self):
+                j = db_f[z1].archive
+                if j == True:
+                        jj = 'Книга в архиве'
+                elif j == False:
+                        jj = 'Книга не в архиве'
+                else:
+                        print('Ошибка определения атрибута архива')
+                        jj = ''
+                returnjj

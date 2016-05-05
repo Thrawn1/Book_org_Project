@@ -1,10 +1,8 @@
-from voluminous_book import *
-from accessory_definition import *
 from key_book_sort import *
 def print_old_and_new_record(tmp_book,db_f,z1):
-        h1 = accessory_file (db_f,z1)
-        h2 = accessory_class(tmp_book)
-        j = voluminous_book(db_f,z1)
+        h1 = db_f[z1].accessory_type()
+        h2 = tmp_book.accessory_type()
+        j = db_f[z1].voluminous_type()
         if j == 'Книга имеет один том':
                 print('\n\n','\t','Старая запись',j,'[',db_f[z1].author_name,db_f[z1].author_middle_name,db_f[z1].author_family,db_f[z1].name_book,db_f[z1].year_p,db_f[z1].genre,h1,('Полка №'+str(db_f[z1].location)),']','\n')
                 print('\n\n','\t','Новая запись',j,'[',tmp_book.author_name,tmp_book.author_middle_name,tmp_book.author_family,tmp_book.name_book,tmp_book.year_p,tmp_book.genre,h2,('Полка №'+str(tmp_book.location)),']','\n')
@@ -17,7 +15,7 @@ def print_results_search(z,db_f):
         z1 = key_book_sort(z)
         for key in z1:
                 n = db_f[key].voluminous
-                h = accessory_file (db_f,key)
+                h = db_f[key].accessory_type()
                 if n == False:
                         print('\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
                 elif n == True:

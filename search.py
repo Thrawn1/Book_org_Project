@@ -11,12 +11,12 @@ def search_family(in1,db_f):
     j1 = input('\nВведите фамилию автора: ')
     j = j1.lower()
     for b in K:
-            c1 = db_f[b].author_family()
-            c = c1.lower()
-            if j == c and nm < in1:
+        c1 = db_f[b].author_family
+        c = c1.lower()
+        if j == c and nm < in1:
                 R.append(b)
                 nm = nm+1
-            else:
+        else:
                 pass
     if len(R) !=0:
         return R

@@ -1,7 +1,5 @@
 import shelve
 from key_book_sort import *
-from accessory_definition import *
-from voluminous_book import *
 def delete_from_db (db_f):
         password = input('\n\nВведите пароль: ')
         if password == '12':
@@ -10,8 +8,8 @@ def delete_from_db (db_f):
                         K.append(key)
                 K1 = key_book_sort(K)
                 for b in K1:
-                        h = accessory_file (db_f,b)
-                        j = voluminous_book(db_f,b)
+                        h = db_f[b].accessory_type()
+                        j = db_f[b].voluminous_type()
                         if j == 'Книга имеет один том':
                                 print('\n\n','\t','[',b,']',j,'[',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n')
                         elif j == 'Книга имеет несколько томов':

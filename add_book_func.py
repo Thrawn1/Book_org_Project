@@ -4,7 +4,6 @@ from s_vol_c import *
 from new_record_s import *
 from new_record_m import *
 from key_book_sort import *
-from accessory_definition import *
 def add_book_func(db_f):
 #Данная функция была объявлена для удобства - теперь в menu.py все логично - формируется только меню и вызываются нужные функции, а не как раньше - добавление записи БД
 # Возможно стоит переработать функцию new_record, и объединить с этой, что бы не усложнять проект
@@ -42,7 +41,7 @@ def add_book_func(db_f):
         J = M[vn:d:1]
         for key in J:
                 n = db_f[key].voluminous
-                h = accessory_file (db_f,key)
+                h = db_f[key].accessory_type()
                 if n == False:
                         print('\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
                 elif n == True:

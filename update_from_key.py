@@ -1,6 +1,5 @@
 import shelve
 from menu_update_from_key_att import *
-from accessory_definition import *
 from key_book_sort import *
 import datetime
 def update_from_key(db_f):
@@ -16,7 +15,7 @@ def update_from_key(db_f):
         for b in K1:
                 num1 = R[tmp1]
                 n = db_f[b].voluminous
-                h = accessory_file (db_f,b)
+                h = db_f[b].accessory_type()
                 if n == False:
                         print('\n','\t',num1,'.','   [',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n ')
                 elif n == True:
