@@ -4,13 +4,20 @@ from key_book_sort import *
 def delete_in_archive(db_f):
         K = []
         R = []
+        U = []
         tmp = 1
         tmp1 = 0
         for key in db_f:
                 K.append(key)
                 R.append(tmp)
                 tmp = tmp + 1
-        K1 = key_book_sort(K)
+        for key in K:
+                uu = db_f[key].archive
+                if uu == False:
+                        U.append(key)
+                else:
+                        pass
+        K1 = key_book_sort(U)
         for b in K1:
                 num1 = R[tmp1]
                 n = db_f[b].voluminous
@@ -27,10 +34,8 @@ def delete_in_archive(db_f):
         while ttt !=1:
                 y = int(in11) in R
                 z = int(in11) - 1
-                print(z)
                 if y == True and z >= 0:
-                        z1 = K[z]
-                        print(z1)
+                        z1 = K1[z]
                         arc_book = db_f[z1]
                         setattr(arc_book,'archive',True)
                         ttt1 = 0
@@ -39,7 +44,6 @@ def delete_in_archive(db_f):
                                 n = len(comm)
                                 mn = comm.replace(' ','')
                                 m = mn.isalnum()
-                                print(n,m,mn,comm)
                                 if n > 0 and m == True:
                                         ttt1 = 1
                                         setattr(arc_book,'comment_archive',comm)

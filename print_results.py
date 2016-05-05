@@ -13,21 +13,19 @@ def print_old_and_new_record(tmp_book,db_f,z1):
                 print('Ошибка определения парметра многотмности')
 def print_results_search(z,db_f):
         J =[]
-        print(z)
         for cv in z:
                 arc = db_f[cv].archive
                 if arc == False:
                         J.append(cv)
                 else:
                         pass
-        print(J)
         z1 = key_book_sort(J)
         for key in z1:
                 n = db_f[key].voluminous
                 h = db_f[key].accessory_type()
                 if n == False:
-                        print('\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
+                        print('\n\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Полка №'+str(db_f[key].location)),'\n')
                 elif n == True:
-                        print('\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Всего томов: '+str(db_f[key].total_vol)),('Номер тома: '+str(db_f[key].number_vol)),('Всего томов в библиотеке: '+str(db_f[key].availble_vol)),('Полка №'+str(db_f[key].location)),']','\n')
+                        print('\n\n','\t',db_f[key].author_name,db_f[key].author_middle_name,db_f[key].author_family,db_f[key].name_book,db_f[key].year_p,db_f[key].genre,h,('Всего томов: '+str(db_f[key].total_vol)),('Номер тома: '+str(db_f[key].number_vol)),('Всего томов в библиотеке: '+str(db_f[key].availble_vol)),('Полка №'+str(db_f[key].location)),']','\n')
                 else:
                        print('Ошибка определения многотмности')

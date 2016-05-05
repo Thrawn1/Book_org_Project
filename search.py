@@ -119,7 +119,6 @@ def search_name_and_family(in1,db_f):
         j = j1.lower()
         for b in K:
                 c = db_f[b].author_name_and_family()
-                print(c)
                 c1 = c[0]
                 c2 = c[1]
                 if j == c1 or j == c2 and nm < in1:
