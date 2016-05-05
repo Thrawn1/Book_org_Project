@@ -1,4 +1,3 @@
-import shelve
 from author_class import *
 class S_vol(Author):
         #Данный класс описывает книгу, которая не имеет томов
@@ -31,7 +30,7 @@ class S_vol(Author):
                         h1 = 'Книга чужая'
                 return h1
         def voluminous_type(self):
-                sm = db_f[z1].voluminous
+                sm = self.voluminous
                 if sm == False:
                         sm1 = 'Книга имеет один том'
                 elif sm == True:
@@ -41,7 +40,7 @@ class S_vol(Author):
                         sm1 = ''
                 return sm1
         def archive_type(self):
-                j = db_f[z1].archive
+                j = self.archive
                 if j == True:
                         jj = 'Книга в архиве'
                 elif j == False:
@@ -49,4 +48,4 @@ class S_vol(Author):
                 else:
                         print('Ошибка определения атрибута архива')
                         jj = ''
-                returnjj
+                return jj

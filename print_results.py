@@ -12,7 +12,16 @@ def print_old_and_new_record(tmp_book,db_f,z1):
         else:
                 print('Ошибка определения парметра многотмности')
 def print_results_search(z,db_f):
-        z1 = key_book_sort(z)
+        J =[]
+        print(z)
+        for cv in z:
+                arc = db_f[cv].archive
+                if arc == False:
+                        J.append(cv)
+                else:
+                        pass
+        print(J)
+        z1 = key_book_sort(J)
         for key in z1:
                 n = db_f[key].voluminous
                 h = db_f[key].accessory_type()

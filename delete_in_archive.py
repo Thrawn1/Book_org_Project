@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 import shelve
 import datetime
 from key_book_sort import *
@@ -16,7 +14,7 @@ def delete_in_archive(db_f):
         for b in K1:
                 num1 = R[tmp1]
                 n = db_f[b].voluminous
-                h = db_f[z1].accessory_type()
+                h = db_f[b].accessory_type()
                 if n == False:
                         print('\n','\t',num1,'.','   [',db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,db_f[b].genre,h,('Полка №'+str(db_f[b].location)),']','\n ')
                 elif n == True:
@@ -29,16 +27,19 @@ def delete_in_archive(db_f):
         while ttt !=1:
                 y = int(in11) in R
                 z = int(in11) - 1
+                print(z)
                 if y == True and z >= 0:
                         z1 = K[z]
+                        print(z1)
                         arc_book = db_f[z1]
                         setattr(arc_book,'archive',True)
                         ttt1 = 0
                         while ttt1 != 1:
                                 comm=input('Введите комментарий к удалению в архив. Внимание, комментарий не может быть пустым!\n\n')
                                 n = len(comm)
-                                m = comm.isalpha()
-                                print(n,m,comm)
+                                mn = comm.replace(' ','')
+                                m = mn.isalnum()
+                                print(n,m,mn,comm)
                                 if n > 0 and m == True:
                                         ttt1 = 1
                                         setattr(arc_book,'comment_archive',comm)
