@@ -1,13 +1,6 @@
-from key_book_sort import *
+from archive_short import *
 def list_archive_book(db_f):
-        R = []
-        for key in db_f:
-                uu = db_f[key].archive 
-                if uu == True:
-                        R.append(key)
-                else:
-                        pass
-        K1 = key_book_sort(R)
+        K1 = archive_short(1,2,db_f)
         for b in K1:
                 n = db_f[b].voluminous
                 h = db_f[b].accessory_type()

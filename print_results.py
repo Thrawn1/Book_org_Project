@@ -1,4 +1,5 @@
 from key_book_sort import *
+from archive_short import *
 def print_old_and_new_record(tmp_book,db_f,z1):
         h1 = db_f[z1].accessory_type()
         h2 = tmp_book.accessory_type()
@@ -12,14 +13,7 @@ def print_old_and_new_record(tmp_book,db_f,z1):
         else:
                 print('Ошибка определения парметра многотмности')
 def print_results_search(z,db_f):
-        J =[]
-        for cv in z:
-                arc = db_f[cv].archive
-                if arc == False:
-                        J.append(cv)
-                else:
-                        pass
-        z1 = key_book_sort(J)
+        z1 = archive_short(0,1,db_f,z)
         for key in z1:
                 n = db_f[key].voluminous
                 h = db_f[key].accessory_type()

@@ -1,25 +1,12 @@
 import shelve
 import datetime
 from key_book_sort import *
+from archive_short import *
 def delete_in_archive(db_f):
-        K = []
-        R = []
-        U = []
-        tmp = 1
         tmp1 = 0
-        for key in db_f:
-                K.append(key)
-                R.append(tmp)
-                tmp = tmp + 1
-        for key in K:
-                uu = db_f[key].archive
-                if uu == False:
-                        U.append(key)
-                else:
-                        pass
-        K1 = key_book_sort(U)
-        for b in K1:
-                num1 = R[tmp1]
+        K = archive_short(2,1,db_f)
+        for b in K[0]:
+                num1 = K[1][tmp1]
                 n = db_f[b].voluminous
                 h = db_f[b].accessory_type()
                 if n == False:
@@ -32,10 +19,10 @@ def delete_in_archive(db_f):
         in11 = input('Введите ключ записи, которую хотите отправить в архив: ')
         ttt = 0
         while ttt !=1:
-                y = int(in11) in R
+                y = int(in11) in K[1]
                 z = int(in11) - 1
                 if y == True and z >= 0:
-                        z1 = K1[z]
+                        z1 = K[0][z]
                         arc_book = db_f[z1]
                         setattr(arc_book,'archive',True)
                         ttt1 = 0

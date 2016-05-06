@@ -7,16 +7,24 @@ def update_from_search(in_2,db_f):
         n = menu_all_search(in_2,db_f)
         b = len(n)
         if b == 1:
-                K.append(n[0])
-                R.append(1)               
-                in11 = '1'      
+                uu = db_f[n[0]].archive
+                if uu == False:
+                        K.append(n[0])
+                        R.append(1)               
+                        in11 = '1'
+                else:
+                        print('Не найдено значений для редактирования!')
         elif b > 1:
                 tmp = 1
                 tmp1 = 0
                 for key in n:
-                        K.append(key)
-                        R.append(tmp)
-                        tmp = tmp + 1
+                        uu = db_f[key].archive
+                        if uu == False:
+                                K.append(key)
+                                R.append(tmp)
+                                tmp = tmp + 1
+                        else:
+                                pass
                 K1 = key_book_sort(K)
                 for b in K1:
                         num1 = R[tmp1]

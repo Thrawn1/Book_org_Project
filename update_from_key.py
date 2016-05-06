@@ -7,11 +7,7 @@ def update_from_key(db_f):
         R = []
         tmp = 1
         tmp1 = 0
-        for key in db_f:
-                K.append(key)
-                R.append(tmp)
-                tmp = tmp + 1
-        K1 = key_book_sort(K)
+        K1 = archive_short(1,1,db_f)
         for b in K1:
                 num1 = R[tmp1]
                 n = db_f[b].voluminous

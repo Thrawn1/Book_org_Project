@@ -4,6 +4,7 @@ from s_vol_c import *
 from new_record_s import *
 from new_record_m import *
 from key_book_sort import *
+from archive_short import *
 def add_book_func(db_f):
 #Данная функция была объявлена для удобства - теперь в menu.py все логично - формируется только меню и вызываются нужные функции, а не как раньше - добавление записи БД
 # Возможно стоит переработать функцию new_record, и объединить с этой, что бы не усложнять проект
@@ -28,13 +29,9 @@ def add_book_func(db_f):
         else:
                 print('\nВведено не верное значение!')
         db_f[y]=t
-        print('\nЗапись занесена!')   
-
-        K2=[]
-        print('Последние 15 записей:')
-        for key in db_f:
-                K2.append(key)
-        M = key_book_sort(K2)
+        print('\n\nЗапись занесена!')   
+        print('\n\nПоследние 15 записей:')
+        M = archive_short(1,1,db_f)
         d = len(M)
         vn = d - 15
         vn1 = d - 1
