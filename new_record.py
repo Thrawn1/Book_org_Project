@@ -1,7 +1,6 @@
 from m_vol_c import *
 from s_vol_c import *
-from new_record_s import *
-from new_record_m import *
+from new_book import *
 from key_book_sort import *
 import shelve
 def new_record(db_f):
@@ -16,11 +15,10 @@ def new_record(db_f):
     type_in = input('\n\nВведите пункт меню:')
     if type_in == '1':
         j = S_vol()
-        t = single_book(j)
+        t = new_book(j)
     elif type_in =='2':
         j = M_vol()
-        t1 = single_book(j)
-        t = multi_book(t1)
+        t = new_book(1,j)
     else:
         print('\nВведено не верное значение!')
     db_f[y]=t

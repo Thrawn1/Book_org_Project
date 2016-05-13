@@ -1,10 +1,31 @@
-def protect_name(in1):
-    if in1 == '' or in1 == ' ' or in1 == '  ' or in1 == '   ':
-        print('Введено не верное значение!')
-        return 0
-    else:
+def protect_name_author(in1):
+    n = len(in1)
+    mn = in1.replace(' ','')
+    m = mn.isalpha()
+    if n > 0 and m == True:
         return 1
-def protect_author(in1):
+    else:
+        print('Введите корректное имя автора!')
+        return 0
+def protect_middle_name_author(in1):
+    n = len(in1)
+    mn = in1.replace(' ','')
+    m = mn.isalpha()
+    if n > 0 and m == True:
+        return 1
+    else:
+        print('Введите корректное отчество автора!')
+        return 0
+def protect_family_author(in1):
+    n = len(in1)
+    mn = in1.replace(' ','')
+    m = mn.isalpha()
+    if n > 0 and m == True:
+        return 1
+    else:
+        print('Введите корректную фамилию автора!')
+        return 0
+def protect_name(in1):
     if in1 == '' or in1 == ' ' or in1 == '  ' or in1 == '   ':
         print('Введено не верное значение!')
         return 0
