@@ -22,7 +22,7 @@ def menu (db_f):
                 list_archive_book(db_f)                
         elif in00 == '6':
                 tmp1 = 0
-                K = archive_short(2,2,db_f)
+                K = archive_short(2,1,db_f)
                 for b in K[0]:
                         num1 = K[1][tmp1]
                         print('\n','\t',num1,': ',[b],db_f[b].author_name,db_f[b].author_middle_name,db_f[b].author_family,db_f[b].name_book,db_f[b].year_p,('Полка №'+str(db_f[b].location)),db_f[b].data_creating,db_f[b].data_last_editing,db_f[b].data_archive,db_f[b].archive,'\n')

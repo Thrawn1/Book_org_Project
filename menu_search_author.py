@@ -2,18 +2,41 @@ import shelve
 from search import *
 from protect_fields import *
 def menu_search_author (in_2,db_f):
+        print('\n\n\tВыберете, по какому автору(зарубежного или отечественного) вы будите искать')
+        in0 =('\n\n\t1 - Отечественный автор; 2 - зарубежный автор; 3 - мне не известно: ')
+        if in0 == '1':
+                in_4 = 1
+        elif in0 == '2':
+                in_4 = 2
+                print('\n\n\n\tБыл выбран вариант поиска зарубежного автора, у которого нет как такового отчества. Вы можете выбрать поиск по имени или поиск по имени и второму имени. Либо вернуться в главное меню и попробовать другой вариант поиска')
+                print('\n\n\n\t1 - поиск только по имени автора;2- Поиск по имени и второму имени зарубежного автора 3 - завершения поиска  ')
+                in_5_i = input('Выбирете пункт:')
+                if in_5_i == '1'
+                        in_5 = 1
+                elif in_5_i == '2'
+                        in_5 = 2
+                elif in_5_i == '3':
+                        in_5 = 3
+                else:
+                        print('Ошибка! Введите корректный пункт!')
+                        in_5 = 3
+        elif in0 == '3':
+                in_4 = 3
+        else:
+                print('Введите корректный пункт!')
+                in_4 = 0
         print('\n\nВыберете вариант поиска по фамилии:\n\n1.Поиск только по фамилии\n\n2.Поиск по фамилии и имени\n\n3.Поиск по Фамилии и инициалам\n\n4.Поиск по имени-отчеству\n\n5.Поиск по полному совпадению Фамилии-Имени-Отчества\n\n')
         in_3 = input('Введите номер пункта меню: ')
         if in_3 == '1':
                 z = search_family(int(in_2),db_f)
         elif in_3 == '2':
-                z = search_name_and_family(int(in_2),db_f)
+                z = search_name_and_family(in_4,int(in_2),db_f)
         elif in_3 == '3':
-                z = search_initials_family(int(in_2),db_f)
+                z = search_initials_family(in_4,int(in_2),db_f)
         elif in_3 == '4':
-                z = search_middle_name(int(in_2),db_f)
+                z = search_middle_name(in_4,int(in_2),db_f,in_5)
         elif in_3 == '5':
-                z = search_full_author(int(in_2),db_f)          
+                z = search_full_author(in_4,int(in_2),db_f)          
         else: 
                 print('Ошибка')
                 z = []

@@ -1,9 +1,9 @@
 from protect_fields import *
 import datetime
-def new_book(p=0,j):
+def new_book(j,p=0):
         time = datetime.datetime.now()
         date_str = time.strftime("%d-%m-%Y")
-        setattr(self,'data_creating',date_str)
+        setattr(j,'data_creating',date_str)
         fieldnmes = ('foreign_author','author_family','author_name','author_middle_name','name_book','year_p','genre','location','accessory')
         fieldnmes_1 = ('Автор иностранный?','Фамилия автора','Имя автора','Отчество автора','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
         rt = 0
@@ -15,7 +15,7 @@ def new_book(p=0,j):
                                 new_b = input('\t[%s]\nВведите год издания:' % (field_1))
                                 cb = protect_date(new_b)
                                 if cb == 1:
-                                        setattr(self,field,new_b)
+                                        setattr(j,field,new_b)
                                         rt = rt+1
                                 else: pass
                 elif field == 'location':
@@ -23,30 +23,30 @@ def new_book(p=0,j):
                                 new_b = input('\t[%s]\nВведите номер полки:' % (field_1))
                                 cb = protect_location(new_b)
                                 if cb == 1:
-                                        setattr(self,field,new_b)
+                                        setattr(j,field,new_b)
                                         rt = rt+1
                                 else: pass
                 elif field == 'accessory':
                         print('Пожалуйста выберете один из вариантов:\n1. Книга ваша\n2. Книга чужая')
                         new_b = int(input('\t[%s]\n:' % (field_1)))
                         if new_b == 1:
-                                setattr(self,field,False)
+                                setattr(j,field,False)
                                 rt = rt+1
                         elif new_b == 2:
-                                setattr(self,field,True)
+                                setattr(j,field,True)
                                 rt = rt+1
                         else:
                                 print('Выбрано недопустимое значение!')
                 elif field == 'genre':
                         new_b_1 = input('\t[%s]\nВведите жанр =>' % (field_1))
-                        setattr(self,field,new_b_1)
+                        setattr(j,field,new_b_1)
                         rt = rt+1
                 elif field == 'author_name':
                         while cb != 1:
                                 new_b_1 = input('\t[%s]\nВведите имя автора:' % (field_1))
                                 cb = protect_name_author(new_b_1)
                                 if cb == 1:
-                                        setattr(self,field,new_b_1)
+                                        setattr(j,field,new_b_1)
                                         rt = rt+1
                                 else: pass
                 elif field == 'name_book':
@@ -54,7 +54,7 @@ def new_book(p=0,j):
                                 new_b_1 = input('\t[%s]\nВведите название книги:' % (field_1))
                                 cb = protect_name(new_b_1)
                                 if cb == 1:
-                                        setattr(self,field,new_b_1)
+                                        setattr(j,field,new_b_1)
                                         rt = rt+1
                                 else: pass
                 elif field == 'author_family':
@@ -62,7 +62,7 @@ def new_book(p=0,j):
                                 new_b_1 = input('\t[%s]\nВведите фамилию автора:' % (field_1))
                                 cb = protect_family_author(new_b_1)
                                 if cb == 1:
-                                        setattr(self,field,new_b_1)
+                                        setattr(j,field,new_b_1)
                                         rt = rt+1
                                 else: pass
                 elif field == 'author_middle_name':
@@ -70,22 +70,22 @@ def new_book(p=0,j):
                                 new_b_1 = input('\t[%s]\nВведите отчество автора:' % (field_1))
                                 cb = protect_middle_name_author(new_b_1)
                                 if cb == 1:
-                                        setattr(self,field,new_b_1)
+                                        setattr(j,field,new_b_1)
                                         rt = rt+1
                                 else: pass
                 elif field == 'foreign_author':
                         print('Пожалуйста выберете один из вариантов:\n1. Автор отечественный\n2. Автор зарубежный')
                         new_b = int(input('\t[%s]\n:' % (field_1)))
                         if new_b == 1:
-                                setattr(self,field,False)
+                                setattr(j,field,False)
                                 rt = rt+1
                         elif new_b == 2:
-                                setattr(self,field,True)
+                                setattr(j,field,True)
                                 rt = rt+1
                         else:
                                 print('Выбрано недопустимое значение!')
         if p == 0:
-                return self
+                return j
         elif p == 1:
                 fieldnmes = ('total_vol','number_vol','availble_vol')
                 fieldnmes_1 = ('Всего томов?','Номер тома','Всего томов есть в наличии')
@@ -98,7 +98,7 @@ def new_book(p=0,j):
                                         new_b = input('\t[%s]\nВведите общее количество томов в собрании:' % (field_1))
                                         cb = protect_total_vol(new_b)
                                         if cb == 1:
-                                                setattr(self,field,new_b)
+                                                setattr(j,field,new_b)
                                                 rt = rt+1
                                         else: pass
                         elif field == 'number_vol':
@@ -106,7 +106,7 @@ def new_book(p=0,j):
                                         new_b = input('\t[%s]\nВведите номер тома:' % (field_1))
                                         cb = protect_total_vol(new_b)
                                         if cb == 1:
-                                                setattr(self,field,new_b)
+                                                setattr(j,field,new_b)
                                                 rt = rt+1
                                         else: pass
                         elif field == 'availble_vol':
@@ -114,9 +114,9 @@ def new_book(p=0,j):
                                         new_b = input('\t[%s]\nВведите  количество томов в наличии:' % (field_1))
                                         cb = protect_total_vol(new_b)
                                         if cb == 1:
-                                                setattr(self,field,new_b)
+                                                setattr(j,field,new_b)
                                                 rt = rt+1
                                         else: pass
-                return self
+                return j
         else:
                 print('Ошибка создания новой записи о книге!')

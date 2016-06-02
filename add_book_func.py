@@ -1,13 +1,10 @@
 import shelve
 from m_vol_c import *
 from s_vol_c import *
-from new_record_s import *
-from new_record_m import *
+from new_book import *
 from key_book_sort import *
 from archive_short import *
 def add_book_func(db_f):
-#Данная функция была объявлена для удобства - теперь в menu.py все логично - формируется только меню и вызываются нужные функции, а не как раньше - добавление записи БД
-# Возможно стоит переработать функцию new_record, и объединить с этой, что бы не усложнять проект
         K1 = []
         for key in db_f:
                 K1.append(key)
@@ -21,11 +18,10 @@ def add_book_func(db_f):
         type_in = input('\n\nВведите пункт меню:')
         if type_in == '1':
                 j = S_vol()
-                t = single_book(j)
+                t = new_book(j)
         elif type_in =='2':
                 j = M_vol()
-                t1 = single_book(j)
-                t = multi_book(t1)
+                t = new_book(1,j)
         else:
                 print('\nВведено не верное значение!')
         db_f[y]=t
