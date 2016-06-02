@@ -1,12 +1,9 @@
 import shelve
-from key_book_sort import *
+from archive_short import *
 def delete_from_db (db_f):
         password = input('\n\nВведите пароль: ')
         if password == '12':
-                K = []
-                for key in db_f:
-                        K.append(key)
-                K1 = key_book_sort(K)
+                K1 = archive_short(2,3,db_f)
                 for b in K1:
                         h = db_f[b].accessory_type()
                         j = db_f[b].voluminous_type()
