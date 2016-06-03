@@ -1,6 +1,7 @@
 from s_vol_c import *
 from m_vol_c import *
 from sort_foreign_author import *
+from definition_author import *
 import shelve
 def search_family(in1,db_f):
 #Поиск по фамили автора
@@ -43,59 +44,37 @@ def search_name_book(in1,db_f):
         return R
     else:
         print('\nНичего не найдено!')
-def search_middle_name(in_4,in1,db_f,in_5 = 0):
+def search_middle_name(in1,db_f):
 # Поиск по имени-отчеству автора
-        if in_4 == 1:
-                R = []
-                K = []
-                nm = 0
-                for key in db_f:
-                        K.append(key)
-                j1 = input('\nВведите имя и отчество автора через один пробел: ')
-                j = j1.lower()
-                for b in K:
-                        c = db_f[b].author_name_middle_q()
-                        if j == c and nm < in1:
-                                R.append(b)
-                                nm = nm+1
-                        else:
-                                pass
-                if len(R) !=0:
-                        return R
+        R = []
+        K1 = []
+        nm = 0
+        for key in db_f:
+                K1.append(key)
+        jd = definition_author()
+        if jd == 1:
+                j1 = input('\nВведите имя и отчество  автора: ')
+                K = sort_foreign_author(1,K1,db_f)
+                j2 = j1.replace(' ','')
+                j = j2.lower()
+        elif jd == 2:
+                j1 = input('\nВведите имя и второе имя зарубежного автора: ')
+                K = sort_foreign_author(2,K1,db_f)
+                j2 = j1.replace(' ','')
+                j = j2.lower()
+        else:
+                print('Ошибка!')
+        for b in K:
+                c = db_f[b].author_name_middle_q()
+                if j == c and nm < in1:
+                        R.append(b)
+                        nm = nm+1
                 else:
-                        print('\nНичего не найдено!')
-                        return []
-        elif in_4 == 2:
-                if in_5 = 3:
-                        return []
-                elif in_5 = 2:
-                        R = []
-                        K = []
-                        nm = 0
-                        for key in db_f:
-                                K.append(key)
-                        L = sort_foreign_author(2,K)
-                        j1 = input('\nВведите имя зарубежного автора : ')
-                        j = j1.lower()
-                        for b in K:
-                                c = db_f[b].author_name
-                                if j == c and nm < in1:
-                                        R.append(b)
-                                        nm = nm+1
-                                else:
-                                        pass
-                        if len(R) !=0:
-                                return R
-                        else:
-                                print('\nНичего не найдено!')
-                                return []
-                elif in_5 = 1:
                         pass
-                elif in_5 = 0:
-                        print('Ошибка вызова функции! Передается аргумент по умолчанию!')
-        elif in_4 == 3:
-                pass
-        elif in_4 == 0:
+        if len(R) !=0:
+                return R
+        else:
+                print('\nНичего не найдено!')
                 return []
 def search_initials_family(in1,db_f):
 # Поиск по фамилии и инициалам

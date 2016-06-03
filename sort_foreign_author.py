@@ -1,10 +1,10 @@
 import shelve
 from key_book_sort import *
-def sort_foreign_author(j,K):
+def sort_foreign_author(j,K,db_f):
         T = []
         T1 = []
         for key in K:
-                z = key.foreign_author
+                z = db_f[key].foreign_author
                 if z == False:
                         T.append(key)
                 elif z == True:

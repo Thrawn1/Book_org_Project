@@ -22,7 +22,7 @@ class Author:
                 return m11,m22
         def author_name_middle_q(self):
         #Данная функция позволяет получить имя и отчество автора
-                i1 = str(self.author_name) +' '+ str(self.author_middle_name)
+                i1 = str(self.author_name) + str(self.author_middle_name)
                 i = i1.lower()
                 return i
                 
