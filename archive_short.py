@@ -20,8 +20,8 @@ def archive_short(v,t,db_f,K=[]):
                         return S2
                 elif t == 3:
                         return S3
-				else:
-					print ('Error! function [archive_short]')
+                else:
+                        print ('Error! function [archive_short]')
         elif v == 1:
                 I1 = []
                 I2 = []
@@ -39,8 +39,8 @@ def archive_short(v,t,db_f,K=[]):
                         return S1
                 elif t == 2:
                         return S2
-				else:
-					print ('Error! function [archive_short]')
+                else:
+                        print ('Error! function [archive_short]')
         elif v == 2:
                 I1 = []
                 I2 = []
@@ -66,10 +66,11 @@ def archive_short(v,t,db_f,K=[]):
                         return S1,K1
                 elif t == 2:
                         return S2,K2
-				else:
-					print ('Error! function [archive_short]')
+                else:
+                        print ('Error! function [archive_short]')
         else:
                 print('Ошибка передачи аргумента в функцию archive_short!')
+
 #Параметрическая функция сортировки. Выполняет сортировку по заданному списку и по всему файлу. 
 #Парамертр v - показывает, из чего будет производится сортировка - из заданного списка или из файла. По умолчанию передаваемый список пуст, а файл базы данных передается целиком. 1 - сортировка по списку, 2 - сортировка по файлу базы данных. 3 - сортировка по файлу базы данных(с нумерацией списков - созается параллельный список с номерами)
 #Параметр t - показывает, что функция будет возвращать. 1 - возврат сортированного списка с признаком не архив. 2 - возврат сортированного списка с признаком архив. 3 - возврат сортированного списка ключей. 
