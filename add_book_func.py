@@ -21,7 +21,7 @@ def add_book_func(db_f):
                 t = new_book(j)
         elif type_in =='2':
                 j = M_vol()
-                t = new_book(1,j)
+                t = new_book(j,1)
         else:
                 print('\nВведено не верное значение!')
         db_f[y]=t
