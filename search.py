@@ -2,6 +2,7 @@ from s_vol_c import *
 from m_vol_c import *
 from sort_foreign_author import *
 from definition_author import *
+from protect_fields import *
 import shelve
 def search_family(in1,db_f):
 #Поиск по фамили автора
@@ -35,12 +36,13 @@ def search_name_book(in1,db_f):
     j1 = input('\nВведите имя название книги: ')
     j2 = j1.replace(' ','')
     j3 = j2.replace('.','')
+    j4 = j3.lower()
     for b in K:
-            c1 = db_f[b].name_book
-            c11 = c1.replace(' ','')
-            c111 = c11.replace('.','')
-            c = c111.lower()
-            if j == c and nm < in1:
+            n = db_f[b].name_book
+            n1 = n.replace(' ','')
+            n2 = n1.replace('.','')
+            n3 = n2.lower()
+            if j4 == n3 and nm < in1:
                 R.append(b)
                 nm = nm + 1
             else:
@@ -48,7 +50,8 @@ def search_name_book(in1,db_f):
     if len(R) !=0:
         return R
     else:
-        print('\nНичего не найдено!')
+        print('\n\n\n\n\nНичего не найдено!')
+        return R
 def search_middle_name(in1,db_f):
 # Поиск по имени-отчеству автора
         R = []
@@ -175,9 +178,13 @@ def search_genre_book(in1,db_f):
         j1 = input('\nВведите жанр книги: ')
         j2 = j1.replace(' ','')
         j3 = j2.replace('.','')
+        j4 = j3.lower()
         for b in K:
-                c = db_f[b].genre
-                if j == c and nm < in1:
+                s = db_f[b].genre
+                s1 = s.replace(' ','')
+                s2 = s1.replace('.','')
+                s3 = s2.lower()
+                if j3 == s3 and nm < in1:
                         R.append(b)
                         nm = nm+1
                 else:
@@ -191,16 +198,20 @@ def search_year_pub(in1,db_f):
         R = []
         K = []
         nm = 0
+        trt = 0
         for key in db_f:
                 K.append(key)
-        j = input('\nВведите год издания: ')
-        for b in K:
-                c = db_f[b].year_p
-                if j == str(c) and nm < in1:
-                        R.append(b)
-                        nm = nm+1
-                else:
-                        pass
+        while trt != 1:
+                j = input('\nВведите год издания: ')
+                trt = protect_date(j)
+                if trt == 1:
+                        for b in K:
+                                c = db_f[b].year_p
+                                if j == str(c) and nm < in1:
+                                        R.append(b)
+                                        nm = nm+1
+                                else:
+                                        pass
         if len(R) !=0:
                 return R
         else:
@@ -210,14 +221,20 @@ def search_location(in1,db_f):
         R = []
         K = []
         nm = 0
+        trt = 0
         for key in db_f:
                 K.append(key)
-        j = input('\nВведите номер полки, список книг с которой вы хотите получить: ')
-        for b in K:
-                c = db_f[b].location
-                if j == str(c) and nm < in1:
-                        R.append(b)
-                        nm = nm+1
+        while trt != 1:
+                j = input('\nВведите номер полки, список книг с которой вы хотите получить: ')
+                trt= protect_location(j)
+                if trt ==1 : 
+                        for b in K:
+                                c = db_f[b].location
+                        if j == str(c) and nm < in1:
+                                R.append(b)
+                                nm = nm+1
+                        else:
+                                pass
                 else:
                         pass
         if len(R) !=0:
