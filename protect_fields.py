@@ -97,3 +97,11 @@ def protect_number(in1):
     else:
         print( 'Введите число!')
         return 0
+def protect_switch_1_or_2(in1):
+        if in1 == '1' or in1 == '2':
+                return 1
+                print('Test!!!')
+        else:
+                print('\n\n\nВведено не верное значение!')
+                print('\n\n\nВведите корректное значение - 1 или 2!!!')
+                return 0

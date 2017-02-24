@@ -4,8 +4,10 @@ from s_vol_c import *
 from new_book import *
 from key_book_sort import *
 from archive_short import *
+from protect_fields import *
 def add_book_func(db_f):
         K1 = []
+        check_input = 0
         for key in db_f:
                 K1.append(key)
         if K1 == []:
@@ -15,23 +17,28 @@ def add_book_func(db_f):
                 cv = int(K[len(K) -1].split('k')[1]) + 1
         y = 'book'+str(cv)
         print('\n\n\nВыберете, какой тип книги хотите добавить:\n\n1.Однотомная книга \n\n2.Многотомное собрание сочинений')
-        type_in = input('\n\nВведите пункт меню:')
-        if type_in == '1':
-                j = S_vol()
-                t = new_book(j)
-        elif type_in =='2':
-                j = M_vol()
-                t = new_book(j,1)
-        else:
-                print('\nВведено не верное значение!')
+        while check_input != 1:
+                type_in = input('\n\nВведите пункт меню:')
+                check_input = protect_switch_1_or_2(type_in)
+                if type_in == '1':
+                        j = S_vol()
+                        t = new_book(j)
+                elif type_in =='2':
+                        j = M_vol()
+                        t = new_book(j,1)
+                else:
+                        pass
         db_f[y]=t
         print('\n\nЗапись занесена!')   
         print('\n\nПоследние 15 записей:')
         M = archive_short(1,1,db_f)
         d = len(M)
-        vn = d - 15
-        vn1 = d - 1
-        J = M[vn:d:1]
+        if d > 15:
+                vn = d - 15
+                vn1 = d - 1
+                J = M[vn:d:1]
+        else:
+                J = M
         for key in J:
                 n = db_f[key].voluminous
                 h = db_f[key].accessory_type()

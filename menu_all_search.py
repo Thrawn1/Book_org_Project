@@ -16,9 +16,7 @@ def menu_all_search(in_2,db_f):
                         n = menu_search_author (in_2,db_f)
                         return n
                 elif in_1 == '3':
-                        print(in_2,in_1)
                         z = search_genre_book(int(in_2),db_f)
-                        print(z)
                         return z
                 elif in_1 == '4':
                         z = search_year_pub(int(in_2),db_f)

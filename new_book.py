@@ -6,7 +6,7 @@ def new_book(j,p=0):
         setattr(j,'data_creating',date_str)
         fieldnmes = ('foreign_author','author_family','author_name','author_middle_name','name_book','year_p','genre','location','accessory')
         fieldnmes_1 = ('Автор иностранный?','Фамилия автора','Имя автора','Отчество автора','Название книги','Год издания','Жанр','Где расположена книга','Чужая ли книга?')
-        rt = 0
+        rt = 0	
         for field in fieldnmes:
                 cb = 0
                 field_1 = fieldnmes_1[rt]
@@ -27,16 +27,24 @@ def new_book(j,p=0):
                                         rt = rt+1
                                 else: pass
                 elif field == 'accessory':
+                        check_input = 0
                         print('Пожалуйста выберете один из вариантов:\n1. Книга ваша\n2. Книга чужая')
-                        new_b = int(input('\t[%s]\n:' % (field_1)))
-                        if new_b == 1:
-                                setattr(j,field,False)
-                                rt = rt+1
-                        elif new_b == 2:
-                                setattr(j,field,True)
-                                rt = rt+1
-                        else:
-                                print('Выбрано недопустимое значение!')
+                        while check_input != 1:
+                                new_b_1 = input('\n\n\n\t[%s]\n:' % (field_1))
+                                check_input = protect_switch_1_or_2(new_b_1)
+                                if check_input == 1:
+                                
+                                        new_b = int(new_b_1)
+                                        if new_b == 1:
+                                                setattr(j,field,False)
+                                                rt = rt+1
+                                        elif new_b == 2:
+                                                setattr(j,field,True)
+                                                rt = rt+1
+                                        else:
+                                                print('Выбрано недопустимое значение!')
+                                else:
+                                        pass
                 elif field == 'genre':
                         new_b_1 = input('\t[%s]\nВведите жанр =>' % (field_1))
                         setattr(j,field,new_b_1)
@@ -74,16 +82,24 @@ def new_book(j,p=0):
                                         rt = rt+1
                                 else: pass
                 elif field == 'foreign_author':
-                        print('Пожалуйста выберете один из вариантов:\n1. Автор отечественный\n2. Автор зарубежный')
-                        new_b = int(input('\t[%s]\n:' % (field_1)))
-                        if new_b == 1:
-                                setattr(j,field,False)
-                                rt = rt+1
-                        elif new_b == 2:
-                                setattr(j,field,True)
-                                rt = rt+1
-                        else:
-                                print('Выбрано недопустимое значение!')
+                        check_input = 0
+                        print('\n\n\nПожалуйста выберете один из вариантов:\n1. Автор отечественный\n2. Автор зарубежный')
+                        
+                        while check_input != 1:
+                                new_b_1 = input('\n\n\n\t[%s]\n:' % (field_1))
+                                check_input = protect_switch_1_or_2(new_b_1)
+                                if  check_input == 1:
+                                        new_b = int(new_b_1)
+                                        if new_b == 1:
+                                                setattr(j,field,False)
+                                                rt = rt+1
+                                        elif new_b == 2:
+                                                setattr(j,field,True)
+                                                rt = rt+1
+                                        else:
+                                                print('Выбрано недопустимое значение!')
+                                else:
+                                        pass
         if p == 0:
                 return j
         elif p == 1:

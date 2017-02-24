@@ -8,11 +8,22 @@ def search_family(in1,db_f):
 #Поиск по фамили автора
     R = []
     K = []
+    R1 = []
     nm = 0
+    nm1 = 0
     for key in db_f:
                 K.append(key)
     j1 = input('\nВведите фамилию автора: ')
     j = j1.lower()
+    
+    for z in K:
+        c1 = db_f[z].author_family
+        c = c1.lower()
+        if j == c:
+                R1.append(z)
+                nm1 = nm1+1
+        else:
+                pass    
     for b in K:
         c1 = db_f[b].author_family
         c = c1.lower()
@@ -22,9 +33,11 @@ def search_family(in1,db_f):
         else:
                 pass
     if len(R) !=0:
+        print('Всего найдено записей:',len(R1))
         return R
     else:
-        print('\nНичего не найдено!')
+        print('\n\n\n\n\n\n\tНичего не найдено!')
+        return R
 
 def search_name_book(in1,db_f):
 #Поиск по названию книги
@@ -83,7 +96,7 @@ def search_middle_name(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_initials_family(in1,db_f):
 # Поиск по фамилии и инициалам
         R = []
@@ -107,7 +120,7 @@ def search_initials_family(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_full_author(in1,db_f):
 # Поиск по Фамилии-Имени-Отчеству
         R = []
@@ -142,7 +155,7 @@ def search_full_author(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 
 def search_name_and_family(in1,db_f):
 #Поиск по фамилии и имени
@@ -168,7 +181,7 @@ def search_name_and_family(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_genre_book(in1,db_f):
         R = []
         K = []
@@ -184,7 +197,7 @@ def search_genre_book(in1,db_f):
                 s1 = s.replace(' ','')
                 s2 = s1.replace('.','')
                 s3 = s2.lower()
-                if j3 == s3 and nm < in1:
+                if j4 == s3 and nm < in1:
                         R.append(b)
                         nm = nm+1
                 else:
@@ -193,7 +206,7 @@ def search_genre_book(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_year_pub(in1,db_f):
         R = []
         K = []
@@ -216,7 +229,7 @@ def search_year_pub(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_location(in1,db_f):
         R = []
         K = []
@@ -241,6 +254,6 @@ def search_location(in1,db_f):
                 return R
         else:
                 print('\nНичего не найдено!')
-                return []
+                return R
 def search_archive():
         pass
